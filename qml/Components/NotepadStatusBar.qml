@@ -7,8 +7,9 @@ ToolBar {
 
     RowLayout {
         // Spacer
+        anchors.fill: parent
+
         Item {
-            Layout.fillWidth: true
             Layout.preferredWidth: control.width * 0.75
         }
 
@@ -16,6 +17,8 @@ ToolBar {
 
         Label {
             id: labelCursorStartPos
+
+            Layout.fillWidth: true
 
             // TODO: Match to current cursor start position
             text: "Ln 1, Col 1"
