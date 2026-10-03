@@ -1,6 +1,10 @@
 import QtQuick
+import QtQuick.Controls
 
 Window {
+import "./Components"
+
+ApplicationWindow {
     id: root
 
     width: 480
