@@ -19,6 +19,14 @@ qt_add_qml_module(sevenPad
         RESOURCE_PREFIX /
         QML_FILES
         qml/Main.qml
+        qml/Components/Actions/ExitAction.qml
+        qml/Components/Actions/NewFileAction.qml
+        qml/Components/Actions/OpenFileAction.qml
+        qml/Components/Actions/PageSetupAction.qml
+        qml/Components/Actions/PrintAction.qml
+        qml/Components/Actions/SaveAsFileAction.qml
+        qml/Components/Actions/SaveFileAction.qml
+        qml/Components/Menus/FileMenu.qml
         qml/Components/NotepadMenuBar.qml
 )
 

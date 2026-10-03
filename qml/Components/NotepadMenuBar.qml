@@ -1,11 +1,13 @@
 import QtQuick
 import QtQuick.Controls
 
+import "./Menus"
+
 MenuBar {
     id: control
 
-    Menu {
-        title: qsTr("&File")
+    FileMenu {
+        id: menuFile
     }
     Menu {
         title: qsTr("&Edit")
