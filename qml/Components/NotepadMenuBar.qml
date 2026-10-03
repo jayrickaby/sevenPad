@@ -15,8 +15,8 @@ MenuBar {
     FormatMenu {
         id: menuFormat
     }
-    Menu {
-        title: qsTr("&View")
+    ViewMenu {
+        id: menuView
     }
     Menu {
         title: qsTr("&Help")
