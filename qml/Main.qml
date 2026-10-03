@@ -27,7 +27,22 @@ ApplicationWindow {
         anchors.fill: parent
     }
 
+    FontSelector {
+        id: fontSelector
+
+        width: 441
+        height: 477
+
+        modality: Qt.WinndowModal
+
+        visible: false
+    }
+
     footer: NotepadStatusBar {
         id: statusBar
+    }
+
+    function openFontSelector() {
+        fontSelector.show();
     }
 }

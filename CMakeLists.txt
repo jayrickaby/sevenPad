@@ -49,6 +49,7 @@ qt_add_qml_module(sevenPad
         qml/Components/Menus/FormatMenu.qml
         qml/Components/Menus/HelpMenu.qml
         qml/Components/Menus/ViewMenu.qml
+        qml/Components/Windows/FontSelector.qml
         qml/Components/NotepadDocument.qml
         qml/Components/NotepadMenuBar.qml
         qml/Components/NotepadStatusBar.qml
