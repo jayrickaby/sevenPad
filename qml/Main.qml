@@ -17,5 +17,13 @@ ApplicationWindow {
 
     visible: true
 
-    menuBar: NotepadMenuBar {}
+    menuBar: NotepadMenuBar {
+        id: menuBar
+    }
+
+    TextEdit {
+        id: document
+
+        anchors.fill: parent
+    }
 }
