@@ -49,6 +49,7 @@ qt_add_qml_module(sevenPad
         qml/Components/Menus/HelpMenu.qml
         qml/Components/Menus/ViewMenu.qml
         qml/Components/NotepadMenuBar.qml
+        qml/Components/NotepadStatusBar.qml
 )
 
 target_include_directories(sevenPad PRIVATE
