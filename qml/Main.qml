@@ -26,4 +26,12 @@ ApplicationWindow {
 
         anchors.fill: parent
     }
+
+    footer: ToolBar {
+        ToolSeparator{}
+        Label {
+            // TODO: Match to current cursor
+            text: "Ln 1, Col 1"
+        }
+    }
 }
