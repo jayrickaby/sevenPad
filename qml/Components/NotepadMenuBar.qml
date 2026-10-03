@@ -12,8 +12,8 @@ MenuBar {
     EditMenu {
         id: menuEdit
     }
-    Menu {
-        title: qsTr("F&ormat")
+    FormatMenu {
+        id: menuFormat
     }
     Menu {
         title: qsTr("&View")
