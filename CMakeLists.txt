@@ -19,8 +19,10 @@ qt_add_qml_module(sevenPad
         RESOURCE_PREFIX /
         QML_FILES
         qml/Main.qml
+        qml/Components/Actions/Application/AboutNotepadAction.qml
         qml/Components/Actions/Application/ExitAction.qml
         qml/Components/Actions/Application/StatusBarAction.qml
+        qml/Components/Actions/Application/ViewHelpAction.qml
         qml/Components/Actions/Document/CopyAction.qml
         qml/Components/Actions/Document/CutAction.qml
         qml/Components/Actions/Document/DeleteAction.qml
@@ -44,6 +46,7 @@ qt_add_qml_module(sevenPad
         qml/Components/Menus/EditMenu.qml
         qml/Components/Menus/FileMenu.qml
         qml/Components/Menus/FormatMenu.qml
+        qml/Components/Menus/HelpMenu.qml
         qml/Components/Menus/ViewMenu.qml
         qml/Components/NotepadMenuBar.qml
 )

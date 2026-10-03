@@ -18,7 +18,7 @@ MenuBar {
     ViewMenu {
         id: menuView
     }
-    Menu {
-        title: qsTr("&Help")
+    HelpMenu {
+        id: menuHelp
     }
 }

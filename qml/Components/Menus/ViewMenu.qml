@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 
-import "../Actions/Document"
+import "../Actions/Application"
 
 Menu {
     id: control
