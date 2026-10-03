@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 
-Window {
 import "./Components"
 
 ApplicationWindow {
@@ -11,4 +10,6 @@ ApplicationWindow {
     height: 270
 
     visible: true
+
+    menuBar: NotepadMenuBar {}
 }

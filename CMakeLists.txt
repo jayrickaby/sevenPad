@@ -19,6 +19,7 @@ qt_add_qml_module(sevenPad
         RESOURCE_PREFIX /
         QML_FILES
         qml/Main.qml
+        qml/Components/NotepadMenuBar.qml
 )
 
 target_include_directories(sevenPad PRIVATE
