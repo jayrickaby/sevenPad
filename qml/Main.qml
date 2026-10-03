@@ -21,7 +21,7 @@ ApplicationWindow {
         id: menuBar
     }
 
-    TextEdit {
+    NotepadDocument {
         id: document
 
         anchors.fill: parent
