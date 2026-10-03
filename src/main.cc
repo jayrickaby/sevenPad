@@ -1,19 +1,24 @@
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
+#include <QQuickStyle>
 
 int main(int argc, char *argv[]) {
-  QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
-  QQmlApplicationEngine engine;
-  QObject::connect(
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+    }
+
+    QQmlApplicationEngine engine;
+    QObject::connect(
     &engine, &QQmlApplicationEngine::objectCreationFailed,
     &app, []() {
-      QCoreApplication::exit(-1);
+        QCoreApplication::exit(-1);
     },
     Qt::QueuedConnection
-  );
+    );
 
-  engine.loadFromModule("jayrickaby.sevenPad", "Main");
+    engine.loadFromModule("jayrickaby.sevenPad", "Main");
 
-  return QGuiApplication::exec();
+    return QApplication::exec();
 }
