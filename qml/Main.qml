@@ -27,13 +27,13 @@ ApplicationWindow {
         anchors.fill: parent
     }
 
-    FontSelector {
-        id: fontSelector
+    FontWindow {
+        id: fontWindow
 
         width: 441
         height: 477
 
-        modality: Qt.WinndowModal
+        modality: Qt.WindowModal
 
         visible: false
     }
@@ -43,6 +43,6 @@ ApplicationWindow {
     }
 
     function openFontSelector() {
-        fontSelector.show();
+        fontWindow.show();
     }
 }

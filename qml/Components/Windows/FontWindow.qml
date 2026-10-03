@@ -3,7 +3,7 @@ import QtQuick.Controls
 
 Window {
     id: root
-    
+
     maximumWidth: width
     maximumHeight: height
 
