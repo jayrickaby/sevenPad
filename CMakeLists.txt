@@ -20,12 +20,25 @@ qt_add_qml_module(sevenPad
         QML_FILES
         qml/Main.qml
         qml/Components/Actions/Application/ExitAction.qml
+        qml/Components/Actions/Document/CopyAction.qml
+        qml/Components/Actions/Document/CutAction.qml
+        qml/Components/Actions/Document/DeleteAction.qml
+        qml/Components/Actions/Document/FindAction.qml
+        qml/Components/Actions/Document/FindNextAction.qml
+        qml/Components/Actions/Document/GoToAction.qml
+        qml/Components/Actions/Document/DeleteAction.qml
         qml/Components/Actions/Document/PageSetupAction.qml
+        qml/Components/Actions/Document/PasteAction.qml
         qml/Components/Actions/Document/PrintAction.qml
+        qml/Components/Actions/Document/ReplaceAction.qml
+        qml/Components/Actions/Document/SelectAllAction.qml
+        qml/Components/Actions/Document/TimeDateAction.qml
+        qml/Components/Actions/Document/UndoAction.qml
         qml/Components/Actions/File/NewFileAction.qml
         qml/Components/Actions/File/OpenFileAction.qml
         qml/Components/Actions/File/SaveAsFileAction.qml
         qml/Components/Actions/File/SaveFileAction.qml
+        qml/Components/Menus/EditMenu.qml
         qml/Components/Menus/FileMenu.qml
         qml/Components/NotepadMenuBar.qml
 )

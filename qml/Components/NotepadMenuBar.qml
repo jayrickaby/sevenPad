@@ -9,8 +9,8 @@ MenuBar {
     FileMenu {
         id: menuFile
     }
-    Menu {
-        title: qsTr("&Edit")
+    EditMenu {
+        id: menuEdit
     }
     Menu {
         title: qsTr("F&ormat")
