@@ -7,7 +7,7 @@ A recreation of Windows 7's Notepad in Qt Quick
 I made this to help provide accompanying software to [AeroThemePlasma](https://gitgud.io/aeroshell/atp/aerothemeplasma), which is a really cool theme that helps make KDE look like Windows 7.
 
 ## Features
-- ~~Text Editing Capabilities~~ (TODO)
+- Text Editing Capabilities
 - ~~File Opening and Saving~~ (TODO)
 - ~~Directly Open Files From Explorer~~ (TODO)
 - ~~Font Selection~~ (TODO)
