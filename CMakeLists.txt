@@ -8,6 +8,7 @@ find_package(Qt6 REQUIRED COMPONENTS
         Qml
         Quick
         QuickControls2
+        Widgets
 )
 
 qt_standard_project_setup(REQUIRES 6.11.2)
@@ -72,6 +73,7 @@ target_link_libraries(sevenPad
         PRIVATE Qt6::Qml
         PRIVATE Qt6::Quick
         PRIVATE Qt6::QuickControls2
+        PRIVATE Qt6::Widgets
 )
 
 install(TARGETS sevenPad
