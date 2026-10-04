@@ -28,13 +28,15 @@ Column {
         model: control.model
 
         delegate:  ItemDelegate {
-            width: view.width
+            width: view.width - scrollBar.implicitWidth
             text: modelData
         }
 
         clip: true
 
-        ScrollBar.vertical: ScrollBar {}
+        ScrollBar.vertical: ScrollBar {
+            id: scrollBar
+        }
     }
 }
 
