@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 
+import "../Controls"
+
 Window {
     id: root
 
@@ -13,4 +15,10 @@ Window {
     title: "Font"
 
     flags: Qt.Dialog
+
+    SimpleComboBox {
+        id: fontSelector
+
+        title: qsTr("&Font:")
+    }
 }
