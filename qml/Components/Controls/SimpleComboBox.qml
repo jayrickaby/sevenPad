@@ -29,6 +29,8 @@ Column {
             width: view.width
             text: modelData
         }
+
+        clip: true
     }
 }
 
