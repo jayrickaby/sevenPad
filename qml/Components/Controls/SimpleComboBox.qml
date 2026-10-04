@@ -20,7 +20,9 @@ Column {
         width: parent.width
 
     }
-    ScrollView {
+    ListView {
+        id: view
+
         height: 140
         width: parent.width
         model: control.model
