@@ -33,6 +33,8 @@ Column {
         }
 
         clip: true
+
+        ScrollBar.vertical: ScrollBar {}
     }
 }
 
