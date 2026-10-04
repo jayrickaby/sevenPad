@@ -19,6 +19,9 @@ Window {
     SimpleComboBox {
         id: fontSelector
 
+        width: 200
+
         title: qsTr("&Font:")
+        model: Qt.fontFamilies()
     }
 }

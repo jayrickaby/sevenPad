@@ -6,6 +6,9 @@ Column {
     id: control
 
     property string title
+    property var model
+    property string textRole
+    property int currentIndex
 
     Label {
         id: label
@@ -20,19 +23,11 @@ Column {
     ScrollView {
         height: 140
         width: parent.width
+        model: control.model
 
-        ListView {
-            model: ListModel {
-                ListElement { name: "Lucida Console" }
-                ListElement { name: "Lucida Sans Unicode" }
-                ListElement { name: "Microsoft Sans Serif" }
-                ListElement { name: "Modern" }
-            }
-            delegate: ItemDelegate {
-                required property string name
-                width: ListView.view.width
-                text: name
-            }
+        delegate:  ItemDelegate {
+            width: view.width
+            text: modelData
         }
     }
 }
