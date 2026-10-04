@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 
+import jayrickaby.sevenPad
+
 import "./Components"
 
 ApplicationWindow {

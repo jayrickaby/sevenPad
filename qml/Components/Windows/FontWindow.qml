@@ -1,10 +1,12 @@
 import QtQuick
 import QtQuick.Controls
 
+import jayrickaby.sevenPad
+
 import "../Controls"
 
 Window {
-    id: root
+    id: control
 
     maximumWidth: width
     maximumHeight: height
@@ -22,6 +24,6 @@ Window {
         width: 200
 
         title: qsTr("&Font:")
-        model: Qt.fontFamilies()
+        model: DocumentStyling.getAvailableFonts()
     }
 }

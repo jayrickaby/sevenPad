@@ -13,51 +13,54 @@ find_package(Qt6 REQUIRED COMPONENTS
 
 qt_standard_project_setup(REQUIRES 6.11.2)
 
-add_executable(sevenPad src/main.cc)
+add_executable(sevenPad src/main.cc
+        src/application/DocumentStyling.cc
+        src/application/DocumentStyling.h
+)
 
 qt_add_qml_module(sevenPad
         URI jayrickaby.sevenPad
         RESOURCE_PREFIX /
         QML_FILES
-        qml/Main.qml
-        qml/Components/Actions/Application/AboutNotepadAction.qml
-        qml/Components/Actions/Application/ExitAction.qml
-        qml/Components/Actions/Application/StatusBarAction.qml
-        qml/Components/Actions/Application/ViewHelpAction.qml
-        qml/Components/Actions/Document/CopyAction.qml
-        qml/Components/Actions/Document/CutAction.qml
-        qml/Components/Actions/Document/DeleteAction.qml
-        qml/Components/Actions/Document/FontAction.qml
-        qml/Components/Actions/Document/FindAction.qml
-        qml/Components/Actions/Document/FindNextAction.qml
-        qml/Components/Actions/Document/GoToAction.qml
-        qml/Components/Actions/Document/DeleteAction.qml
-        qml/Components/Actions/Document/PageSetupAction.qml
-        qml/Components/Actions/Document/PasteAction.qml
-        qml/Components/Actions/Document/PrintAction.qml
-        qml/Components/Actions/Document/ReplaceAction.qml
-        qml/Components/Actions/Document/SelectAllAction.qml
-        qml/Components/Actions/Document/TimeDateAction.qml
-        qml/Components/Actions/Document/UndoAction.qml
-        qml/Components/Actions/Document/WordWrapAction.qml
-        qml/Components/Actions/File/NewFileAction.qml
-        qml/Components/Actions/File/OpenFileAction.qml
-        qml/Components/Actions/File/SaveAsFileAction.qml
-        qml/Components/Actions/File/SaveFileAction.qml
-        qml/Components/Controls/SimpleComboBox.qml
-        qml/Components/Menus/EditMenu.qml
-        qml/Components/Menus/FileMenu.qml
-        qml/Components/Menus/FormatMenu.qml
-        qml/Components/Menus/HelpMenu.qml
-        qml/Components/Menus/ViewMenu.qml
-        qml/Components/Windows/FontWindow.qml
-        qml/Components/NotepadDocument.qml
-        qml/Components/NotepadMenuBar.qml
-        qml/Components/NotepadStatusBar.qml
+            qml/Main.qml
+            qml/Components/Actions/Application/AboutNotepadAction.qml
+            qml/Components/Actions/Application/ExitAction.qml
+            qml/Components/Actions/Application/StatusBarAction.qml
+            qml/Components/Actions/Application/ViewHelpAction.qml
+            qml/Components/Actions/Document/CopyAction.qml
+            qml/Components/Actions/Document/CutAction.qml
+            qml/Components/Actions/Document/DeleteAction.qml
+            qml/Components/Actions/Document/FontAction.qml
+            qml/Components/Actions/Document/FindAction.qml
+            qml/Components/Actions/Document/FindNextAction.qml
+            qml/Components/Actions/Document/GoToAction.qml
+            qml/Components/Actions/Document/PageSetupAction.qml
+            qml/Components/Actions/Document/PasteAction.qml
+            qml/Components/Actions/Document/PrintAction.qml
+            qml/Components/Actions/Document/ReplaceAction.qml
+            qml/Components/Actions/Document/SelectAllAction.qml
+            qml/Components/Actions/Document/TimeDateAction.qml
+            qml/Components/Actions/Document/UndoAction.qml
+            qml/Components/Actions/Document/WordWrapAction.qml
+            qml/Components/Actions/File/NewFileAction.qml
+            qml/Components/Actions/File/OpenFileAction.qml
+            qml/Components/Actions/File/SaveAsFileAction.qml
+            qml/Components/Actions/File/SaveFileAction.qml
+            qml/Components/Controls/SimpleComboBox.qml
+            qml/Components/Menus/EditMenu.qml
+            qml/Components/Menus/FileMenu.qml
+            qml/Components/Menus/FormatMenu.qml
+            qml/Components/Menus/HelpMenu.qml
+            qml/Components/Menus/ViewMenu.qml
+            qml/Components/Windows/FontWindow.qml
+            qml/Components/NotepadDocument.qml
+            qml/Components/NotepadMenuBar.qml
+            qml/Components/NotepadStatusBar.qml
 )
 
 target_include_directories(sevenPad PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/application
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
