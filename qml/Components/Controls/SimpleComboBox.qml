@@ -34,6 +34,8 @@ Column {
 
         rightMargin: scrollBar.visible ? scrollBar.width : 0
 
+        clip: true
+
         delegate: control.delegate
 
         ScrollBar.vertical: ScrollBar {
