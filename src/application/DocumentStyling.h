@@ -34,6 +34,8 @@ public slots:
     QStringList getAvailableStyles();
     QList<uint> getAvailableSizes();
 
+    QString getDefaultFont(enum QFontDatabase::SystemFont type = QFontDatabase::GeneralFont);
+
 private:
     QString m_font;
     QString m_fontStyle;
