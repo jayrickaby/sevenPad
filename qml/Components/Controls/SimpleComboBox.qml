@@ -12,6 +12,8 @@ Column {
     property string title
     property var model
 
+    property Component delegate: SimpleComboBoxDelegate {}
+
     Label {
         id: label
         text: control.title
@@ -32,7 +34,7 @@ Column {
 
         rightMargin: scrollBar.visible ? scrollBar.width : 0
 
-        delegate: SimpleComboBoxDelegate {}
+        delegate: control.delegate
 
         ScrollBar.vertical: ScrollBar {
             id: scrollBar

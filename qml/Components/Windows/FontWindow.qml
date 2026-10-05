@@ -23,6 +23,9 @@ Window {
 
         width: 200
 
+        delegate: SimpleComboBoxDelegate {  
+            font.family: modelData
+        }
         model: DocumentStyling.getAvailableFonts()
 
         title: qsTr("&Font:")
