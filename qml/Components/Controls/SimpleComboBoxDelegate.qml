@@ -7,7 +7,7 @@ ItemDelegate {
     required property int index
     required property string modelData
 
-    width: parent.width
+    width: parent ? parent.width : 0
 
     highlighted: ListView.isCurrentItem
     text: modelData
