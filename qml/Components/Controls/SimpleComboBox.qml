@@ -29,12 +29,15 @@ Column {
         currentIndex: root.currentIndex
 
         delegate:  ItemDelegate {
+            required property int index
             required property string modelData
 
             width: view.width - scrollBar.implicitWidth
 
             highlighted: ListView.isCurrentItem
             text: modelData
+
+            onClicked: view.currentIndex = index
         }
 
         clip: true
