@@ -23,7 +23,8 @@ Window {
 
         width: 200
 
-        title: qsTr("&Font:")
         model: DocumentStyling.getAvailableFonts()
+
+        title: qsTr("&Font:")
     }
 }

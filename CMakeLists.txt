@@ -47,6 +47,7 @@ qt_add_qml_module(sevenPad
             qml/Components/Actions/File/SaveAsFileAction.qml
             qml/Components/Actions/File/SaveFileAction.qml
             qml/Components/Controls/SimpleComboBox.qml
+            qml/Components/Controls/SimpleComboBoxDelegate.qml
             qml/Components/Menus/EditMenu.qml
             qml/Components/Menus/FileMenu.qml
             qml/Components/Menus/FormatMenu.qml

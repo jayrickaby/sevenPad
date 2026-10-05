@@ -2,13 +2,15 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+import "./"
+
 Column {
     id: control
 
+    property int currentIndex
+    property string textRole
     property string title
     property var model
-    property string textRole
-    property int currentIndex
 
     Label {
         id: label
@@ -28,19 +30,9 @@ Column {
         model: control.model
         currentIndex: root.currentIndex
 
-        delegate:  ItemDelegate {
-            required property int index
-            required property string modelData
+        rightMargin: scrollBar.visible ? scrollBar.width : 0
 
-            width: view.width - scrollBar.implicitWidth
-
-            highlighted: ListView.isCurrentItem
-            text: modelData
-
-            onClicked: view.currentIndex = index
-        }
-
-        clip: true
+        delegate: SimpleComboBoxDelegate {}
 
         ScrollBar.vertical: ScrollBar {
             id: scrollBar
