@@ -26,9 +26,14 @@ Column {
         height: 140
         width: parent.width
         model: control.model
+        currentIndex: root.currentIndex
 
         delegate:  ItemDelegate {
+            required property string modelData
+
             width: view.width - scrollBar.implicitWidth
+
+            highlighted: ListView.isCurrentItem
             text: modelData
         }
 
