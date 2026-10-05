@@ -14,6 +14,24 @@ Column {
 
     property Component delegate: SimpleComboBoxDelegate {}
 
+    function findFirstMatch(rawText) {
+        if (!model || rawText === "") {
+            return 0;
+        }
+
+        let text = rawText.toLowerCase();
+
+        for (let i = 0; i < model.length; i++) {
+            var item = model[i].toLowerCase();
+
+            if (item.startsWith(text)) {
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
     Label {
         id: label
         text: control.title
@@ -23,6 +41,9 @@ Column {
         id: input
         width: parent.width
 
+        onTextChanged: {
+            control.currentIndex = findFirstMatch(text)
+        }
     }
     ListView {
         id: view
@@ -30,7 +51,7 @@ Column {
         height: 140
         width: parent.width
         model: control.model
-        currentIndex: root.currentIndex
+        currentIndex: control.currentIndex
 
         rightMargin: scrollBar.visible ? scrollBar.width : 0
 
