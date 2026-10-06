@@ -68,6 +68,21 @@ Window {
 
             title: qsTr("Font St&yle:")
         }
+
+        SimpleComboBox {
+            id: pointSelector
+
+            // Prevent layout stretching
+            Layout.alignment: Qt.AlignTop
+            Layout.fillHeight: false
+            Layout.fillWidth: false
+            Layout.preferredWidth: 63
+            Layout.preferredHeight: 151
+
+            model: DocumentStyling.getAvailableSizes();
+
+            title: qsTr("&Size:")
+        }
     }
 
     Component.onCompleted: {
