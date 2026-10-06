@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 
 import jayrickaby.sevenPad
 
@@ -18,44 +19,56 @@ Window {
 
     flags: Qt.Dialog
 
-    SimpleComboBox {
-        id: fontSelector
+    RowLayout {
+        anchors.fill: parent
 
-        width: 172
-        height: 160
+        spacing: 16
 
-        currentIndex: findFirstMatch(DocumentStyling.font)
+        SimpleComboBox {
+            id: fontSelector
 
-        delegate: SimpleComboBoxDelegate {
-            font.family: modelData;
+            // Prevent layout stretching
+            Layout.alignment: Qt.AlignTop
+            Layout.fillHeight: false
+            Layout.fillWidth: false
+            Layout.preferredWidth: 172
+            Layout.preferredHeight: 160
+
+            currentIndex: findFirstMatch(DocumentStyling.font)
+
+            delegate: SimpleComboBoxDelegate {
+                font.family: modelData;
+            }
+
+            model: DocumentStyling.getAvailableFonts()
+
+            title: qsTr("&Font:")
+
+            onCurrentIndexChanged: {
+                DocumentStyling.font = fontSelector.model[fontSelector.currentIndex];
+            }
         }
-    
-        model: DocumentStyling.getAvailableFonts()
 
-        title: qsTr("&Font:")
+        SimpleComboBox {
+            id: styleSelector
 
-        onCurrentIndexChanged: {
-            DocumentStyling.font = fontSelector.model[fontSelector.currentIndex];
+            // Prevent layout stretching
+            Layout.alignment: Qt.AlignTop
+            Layout.fillHeight: false
+            Layout.fillWidth: false
+            Layout.preferredWidth: 131
+            Layout.preferredHeight: 160
+
+            delegate: SimpleComboBoxDelegate {
+                font.family: DocumentStyling.font
+                font.styleName: modelData;
+            }
+
+            model: DocumentStyling.getFontStyles(DocumentStyling.font);
+
+            title: qsTr("Font St&yle:")
         }
     }
-
-    SimpleComboBox {
-        id: styleSelector
-
-        x: 250
-        width: 131
-        height: 160
-
-        delegate: SimpleComboBoxDelegate {
-            font.family: DocumentStyling.font
-            font.styleName: modelData;
-        }
-
-        model: DocumentStyling.getFontStyles(DocumentStyling.font);
-
-        title: qsTr("Font St&yle:")
-    }
-
 
     Component.onCompleted: {
         // Replicates window behaviour
