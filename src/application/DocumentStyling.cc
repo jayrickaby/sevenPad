@@ -25,7 +25,7 @@ QList<uint> DocumentStyling::getAvailableSizes() {
 
 QString DocumentStyling::getDefaultFont(QFontDatabase::SystemFont type) {
     // TODO: Check stored default font if allowing user to customise this
-    return QFontDatabase::systemFont(type).toString();
+    return QFontDatabase::systemFont(type).family();
 }
 
 void DocumentStyling::setFont(const QString &string) {
