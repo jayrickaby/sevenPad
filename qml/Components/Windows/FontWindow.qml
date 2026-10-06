@@ -21,7 +21,8 @@ Window {
     SimpleComboBox {
         id: fontSelector
 
-        width: 200
+        width: 172
+        height: 160
 
         currentIndex: findFirstMatch(DocumentStyling.font)
 
@@ -42,7 +43,8 @@ Window {
         id: styleSelector
 
         x: 250
-        width: 200
+        width: 131
+        height: 160
 
         delegate: SimpleComboBoxDelegate {
             font.family: DocumentStyling.font

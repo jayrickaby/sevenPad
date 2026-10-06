@@ -4,7 +4,7 @@ import QtQuick.Layouts
 
 import "./"
 
-Column {
+ColumnLayout {
     id: control
 
     property alias textField: input
@@ -12,6 +12,8 @@ Column {
     property int currentIndex
     property string title
     property var model
+
+    spacing: 0
 
     function findFirstMatch(rawText) {
         if (!model || rawText === "") {
@@ -34,6 +36,8 @@ Column {
     MnemonicLabel {
         id: label
 
+        Layout.fillWidth: true
+
         action: function() {
             input.forceActiveFocus();
         }
@@ -45,7 +49,7 @@ Column {
 
         property bool isUserTyping: false
 
-        width: parent.width
+        Layout.fillWidth: true
 
         onTextEdited: {
             // So text isn't autofilled while the user is typing
@@ -62,8 +66,8 @@ Column {
     }
 
     Frame {
-        width: parent.width
-        height: 140
+        Layout.fillWidth: true
+        Layout.fillHeight: true
 
         padding: 0
 
