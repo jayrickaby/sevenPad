@@ -40,7 +40,7 @@ Column {
         width: parent.width
 
         onTextChanged: {
-            control.currentIndex = findFirstMatch(text)
+            view.currentIndex = findFirstMatch(text)
         }
     }
     ListView {
