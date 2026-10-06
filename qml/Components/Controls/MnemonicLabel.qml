@@ -2,8 +2,9 @@ import QtQuick
 import QtQuick.Controls
 
 Label {
-    function generateMnemonicHTML(rawText) {
-        let result = ""
+    id: control
+    function getMnemonicHTML(rawText) {
+        let result = "";
 
         let underlineChar = false;
 
@@ -11,7 +12,7 @@ Label {
             let char = rawText[i];
 
             if (char === "&") {
-                char = "<u>"
+                char = "<u>";
                 underlineChar = true;
             } else if (underlineChar) {
                 char += "</u>";
@@ -24,7 +25,42 @@ Label {
         return result;
     }
 
-    Component.onCompleted: {
-        title = generateMnemonicHTML(title);
+    function getMnemonicShortcut(rawText) {
+        let result = "";
+
+        for (let i = 0; i < rawText.length; i++) {
+            let rawChar = rawText[i];
+
+            if (rawChar !== "&") {
+                continue;
+            }
+
+            if (i + 1 === rawText.length) {
+                continue;
+            }
+
+            let char = rawText[i + 1].toUpperCase();
+
+            result = `ALT+${char}`
+        }
+
+        return result;
+    }
+
+    property string shortcut: getMnemonicShortcut(rawText)
+    property string rawText
+
+    property var action: null
+
+    text: getMnemonicHTML(rawText);
+
+    Action {
+        shortcut: control.shortcut
+
+        onTriggered: {
+            if (control.action && typeof control.action == "function") {
+                control.action();
+            }
+        }
     }
 }
