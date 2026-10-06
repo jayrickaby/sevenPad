@@ -60,33 +60,40 @@ Column {
             }
         }
     }
-    ListView {
-        id: view
 
-        height: 140
+    Frame {
         width: parent.width
+        height: 140
 
-        rightMargin: scrollBar.visible ? scrollBar.width : 0
+        padding: 0
 
-        clip: true
-        currentIndex: control.currentIndex
-        delegate: control.delegate
-        model: control.model
+        ListView {
+            id: view
+            anchors.fill: parent
 
-        highlightMoveDuration : 500
+            rightMargin: scrollBar.visible ? scrollBar.width : 0
 
-        ScrollBar.vertical: ScrollBar {
-            id: scrollBar
-        }
+            clip: true
+            currentIndex: control.currentIndex
+            delegate: control.delegate
+            model: control.model
 
-        onCurrentIndexChanged: {
-            control.currentIndex = currentIndex;
+            highlightMoveDuration : 500
 
-            // So text isn't autofilled while the user is typing
-            if (!input.isUserTyping) {
-                input.text = model[currentIndex];
+            ScrollBar.vertical: ScrollBar {
+                id: scrollBar
+            }
+
+            onCurrentIndexChanged: {
+                control.currentIndex = currentIndex;
+
+                // So text isn't autofilled while the user is typing
+                if (!input.isUserTyping) {
+                    input.text = model[currentIndex];
+                }
             }
         }
+
     }
 }
 
