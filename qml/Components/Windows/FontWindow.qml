@@ -23,6 +23,7 @@ Window {
 
         width: 200
 
+        currentIndex: findFirstMatch(DocumentStyling.font)
         delegate: SimpleComboBoxDelegate {
             font.family: modelData;
         }
