@@ -53,4 +53,10 @@ Window {
 
         title: qsTr("Font St&yle:")
     }
+
+
+    Component.onCompleted: {
+        // Replicates window behaviour
+        fontSelector.textField.forceActiveFocus();
+    }
 }

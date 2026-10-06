@@ -7,6 +7,7 @@ import "./"
 Column {
     id: control
 
+    property alias textField: input
     property Component delegate: SimpleComboBoxDelegate {}
     property int currentIndex
     property string title
