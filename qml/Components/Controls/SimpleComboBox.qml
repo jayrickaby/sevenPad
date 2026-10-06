@@ -31,7 +31,7 @@ Column {
         return 0;
     }
 
-    Label {
+    MnemonicLabel {
         id: label
         text: control.title
     }
