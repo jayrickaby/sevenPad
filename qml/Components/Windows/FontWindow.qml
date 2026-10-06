@@ -23,11 +23,27 @@ Window {
 
         width: 200
 
-        delegate: SimpleComboBoxDelegate {  
-            font.family: modelData
+        delegate: SimpleComboBoxDelegate {
+            font.family: modelData;
         }
+
         model: DocumentStyling.getAvailableFonts()
 
         title: qsTr("&Font:")
+    }
+
+    SimpleComboBox {
+        id: styleSelector
+
+        x: 250
+        width: 200
+
+        delegate: SimpleComboBoxDelegate {
+            font.styleName: modelData;
+        }
+
+        model: DocumentStyling.getAvailableStyles();
+
+        title: qsTr("Font St&yle:")
     }
 }

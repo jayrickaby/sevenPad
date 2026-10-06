@@ -7,12 +7,11 @@ import "./"
 Column {
     id: control
 
+    property Component delegate: SimpleComboBoxDelegate {}
     property int currentIndex
     property string textRole
     property string title
     property var model
-
-    property Component delegate: SimpleComboBoxDelegate {}
 
     function findFirstMatch(rawText) {
         if (!model || rawText === "") {
