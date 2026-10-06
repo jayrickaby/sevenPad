@@ -43,6 +43,7 @@ Column {
         width: parent.width
 
         onTextEdited: {
+            // So text isn't autofilled while the user is typing
             isUserTyping = true;
             view.currentIndex = findFirstMatch(text)
             isUserTyping = false;
@@ -70,6 +71,7 @@ Column {
         onCurrentIndexChanged: {
             control.currentIndex = currentIndex;
 
+            // So text isn't autofilled while the user is typing
             if (!input.isUserTyping) {
                 input.text = model[currentIndex];
             }
