@@ -45,6 +45,7 @@ Window {
         width: 200
 
         delegate: SimpleComboBoxDelegate {
+            font.family: DocumentStyling.font
             font.styleName: modelData;
         }
 
