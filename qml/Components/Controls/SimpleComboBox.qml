@@ -33,7 +33,11 @@ Column {
 
     MnemonicLabel {
         id: label
-        text: control.title
+
+        action: function() {
+            input.forceActiveFocus();
+        }
+        rawText: control.title
     }
 
     TextField {
