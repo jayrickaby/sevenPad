@@ -24,6 +24,7 @@ Window {
         width: 200
 
         currentIndex: findFirstMatch(DocumentStyling.font)
+
         delegate: SimpleComboBoxDelegate {
             font.family: modelData;
         }
@@ -31,6 +32,10 @@ Window {
         model: DocumentStyling.getAvailableFonts()
 
         title: qsTr("&Font:")
+
+        onCurrentIndexChanged: {
+            DocumentStyling.font = fontSelector.model[fontSelector.currentIndex];
+        }
     }
 
     SimpleComboBox {

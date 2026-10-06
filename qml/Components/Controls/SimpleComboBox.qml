@@ -9,7 +9,6 @@ Column {
 
     property Component delegate: SimpleComboBoxDelegate {}
     property int currentIndex
-    property string textRole
     property string title
     property var model
 
@@ -62,6 +61,10 @@ Column {
 
         ScrollBar.vertical: ScrollBar {
             id: scrollBar
+        }
+
+        onCurrentIndexChanged: {
+            control.currentIndex = currentIndex;
         }
     }
 }
