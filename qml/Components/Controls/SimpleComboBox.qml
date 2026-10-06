@@ -52,6 +52,8 @@ Column {
         model: control.model
         currentIndex: control.currentIndex
 
+        highlightMoveDuration : 500
+
         rightMargin: scrollBar.visible ? scrollBar.width : 0
 
         clip: true
