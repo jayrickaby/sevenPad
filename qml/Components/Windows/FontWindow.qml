@@ -48,7 +48,7 @@ Window {
             font.styleName: modelData;
         }
 
-        model: DocumentStyling.getAvailableStyles();
+        model: DocumentStyling.getFontStyles(DocumentStyling.font);
 
         title: qsTr("Font St&yle:")
     }

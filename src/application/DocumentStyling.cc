@@ -14,8 +14,8 @@ QStringList DocumentStyling::getAvailableFonts() {
     return QFontDatabase::families();
 }
 
-QStringList DocumentStyling::getAvailableStyles() {
-    return QFontDatabase::styles(m_font);
+QStringList DocumentStyling::getFontStyles(const QString& family) {
+    return QFontDatabase::styles(family);
 }
 
 QList<uint> DocumentStyling::getAvailableSizes() {

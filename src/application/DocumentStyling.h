@@ -30,11 +30,12 @@ public:
     void setFontSize(uint size);
 
 public slots:
-    QStringList getAvailableFonts();
-    QStringList getAvailableStyles();
     QList<uint> getAvailableSizes();
 
     QString getDefaultFont(enum QFontDatabase::SystemFont type = QFontDatabase::GeneralFont);
+
+    QStringList getAvailableFonts();
+    QStringList getFontStyles(const QString& family);
 
 private:
     QString m_font;
