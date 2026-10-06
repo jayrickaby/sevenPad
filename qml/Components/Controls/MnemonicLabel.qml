@@ -52,6 +52,7 @@ Label {
 
     property var action: null
 
+    // TODO: Should indefinitely show underlines only when alt is initially pressed
     text: getMnemonicHTML(rawText);
 
     Action {
