@@ -48,6 +48,12 @@ Column {
             view.currentIndex = findFirstMatch(text)
             isUserTyping = false;
         }
+
+        onActiveFocusChanged: {
+            if (activeFocus) {
+                selectAll();
+            }
+        }
     }
     ListView {
         id: view
