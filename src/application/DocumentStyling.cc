@@ -29,19 +29,25 @@ QString DocumentStyling::getDefaultFont(QFontDatabase::SystemFont type) {
 }
 
 void DocumentStyling::setFont(const QString &string) {
-    m_font = string;
+    if (m_font != string) {
+        m_font = string;
 
-    emit fontChanged();
+        emit fontChanged();
+    }
 }
 
 void DocumentStyling::setFontStyle(const QString &string) {
-    m_fontStyle = string;
+    if (m_fontStyle != string) {
+        m_fontStyle = string;
 
-    emit fontStyleChanged();
+        emit fontStyleChanged();
+    }
 }
 
 void DocumentStyling::setFontSize(uint size) {
-    m_fontSize = size;
+    if (m_fontSize != size) {
+        m_fontSize = size;
 
-    emit fontSizeChanged();
+        emit fontSizeChanged();
+    }
 }
