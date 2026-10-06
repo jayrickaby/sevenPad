@@ -37,10 +37,15 @@ Column {
 
     TextField {
         id: input
+
+        property bool isUserTyping: false
+
         width: parent.width
 
-        onTextChanged: {
+        onTextEdited: {
+            isUserTyping = true;
             view.currentIndex = findFirstMatch(text)
+            isUserTyping = false;
         }
     }
     ListView {
@@ -48,16 +53,15 @@ Column {
 
         height: 140
         width: parent.width
-        model: control.model
-        currentIndex: control.currentIndex
-
-        highlightMoveDuration : 500
 
         rightMargin: scrollBar.visible ? scrollBar.width : 0
 
         clip: true
-
+        currentIndex: control.currentIndex
         delegate: control.delegate
+        model: control.model
+
+        highlightMoveDuration : 500
 
         ScrollBar.vertical: ScrollBar {
             id: scrollBar
@@ -65,6 +69,10 @@ Column {
 
         onCurrentIndexChanged: {
             control.currentIndex = currentIndex;
+
+            if (!input.isUserTyping) {
+                input.text = model[currentIndex];
+            }
         }
     }
 }

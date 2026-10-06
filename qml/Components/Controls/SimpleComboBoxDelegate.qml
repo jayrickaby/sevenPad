@@ -13,8 +13,10 @@ ItemDelegate {
     text: modelData
 
     onClicked: {
-        if (ListView.view) {
-            ListView.view.currentIndex = index
+        if (!ListView.view) {
+            return
         }
+
+        ListView.view.currentIndex = index;
     }
 }
