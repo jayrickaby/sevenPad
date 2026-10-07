@@ -15,6 +15,7 @@ QStringList DocumentStyling::getAvailableFonts() {
 }
 
 QStringList DocumentStyling::getFontStyles(const QString& family) {
+    // TODO: This is ordered in a specific way in Windows. Removes the need for getDefaultStyle()
     return QFontDatabase::styles(family);
 }
 
@@ -50,4 +51,8 @@ void DocumentStyling::setFontSize(uint size) {
 
         emit fontSizeChanged();
     }
+}
+
+QString DocumentStyling::getDefaultStyle() {
+    return "Regular";
 }

@@ -52,6 +52,7 @@ Window {
 
             onCurrentIndexChanged: {
                 currentFamily = fontSelector.model[fontSelector.currentIndex];
+                styleSelector.currentIndex = styleSelector.findFirstMatch(DocumentStyling.getDefaultStyle());
             }
         }
 
@@ -65,14 +66,14 @@ Window {
             Layout.preferredWidth: 131
             Layout.preferredHeight: 160
 
-            currentIndex: findFirstMatch(currentStyle)
+            currentIndex: currentStyle ? findFirstMatch(currentStyle) : findFirstMatch(DocumentStyling.getDefaultStyle)
 
             delegate: SimpleComboBoxDelegate {
-                font.family: DocumentStyling.font
+                font.family: currentFamily
                 font.styleName: modelData;
             }
 
-            model: DocumentStyling.getFontStyles(DocumentStyling.font);
+            model: DocumentStyling.getFontStyles(currentFamily);
 
             title: qsTr("Font St&yle:")
 
