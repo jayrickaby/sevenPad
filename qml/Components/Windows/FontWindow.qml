@@ -19,10 +19,12 @@ Window {
 
     flags: Qt.Dialog
 
-    RowLayout {
+    GridLayout {
         anchors.fill: parent
+        columns: 3
 
-        spacing: 16
+        columnSpacing: 16
+        rowSpacing: 16
 
         SimpleComboBox {
             id: fontSelector
@@ -82,6 +84,24 @@ Window {
             model: DocumentStyling.getAvailableSizes();
 
             title: qsTr("&Size:")
+        }
+
+        // Spacer Item
+        Item {}
+
+        GroupBox {
+            id: stylePreview
+
+            Layout.columnSpan: 2
+            Layout.fillWidth: true
+
+            title: qsTr("Sample")
+
+            Label {
+                anchors.fill: parent
+
+                text: "AaBbYyZz"
+            }
         }
     }
 
