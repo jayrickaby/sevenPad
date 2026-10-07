@@ -9,6 +9,10 @@ import "../Controls"
 Window {
     id: control
 
+    property string currentFamily: DocumentStyling.font
+    property string currentStyle: DocumentStyling.fontStyle
+    property int currentSize: DocumentStyling.fontSize
+
     maximumWidth: width
     maximumHeight: height
 
@@ -36,7 +40,7 @@ Window {
             Layout.preferredWidth: 172
             Layout.preferredHeight: 160
 
-            currentIndex: findFirstMatch(DocumentStyling.font)
+            currentIndex: findFirstMatch(currentFamily)
 
             delegate: SimpleComboBoxDelegate {
                 font.family: modelData;
@@ -47,7 +51,7 @@ Window {
             title: qsTr("&Font:")
 
             onCurrentIndexChanged: {
-                DocumentStyling.font = fontSelector.model[fontSelector.currentIndex];
+                currentFamily = fontSelector.model[fontSelector.currentIndex];
             }
         }
 
@@ -61,6 +65,8 @@ Window {
             Layout.preferredWidth: 131
             Layout.preferredHeight: 160
 
+            currentIndex: findFirstMatch(currentStyle)
+
             delegate: SimpleComboBoxDelegate {
                 font.family: DocumentStyling.font
                 font.styleName: modelData;
@@ -69,6 +75,10 @@ Window {
             model: DocumentStyling.getFontStyles(DocumentStyling.font);
 
             title: qsTr("Font St&yle:")
+
+            onCurrentIndexChanged: {
+                currentStyle = styleSelector.model[styleSelector.currentIndex];
+            }
         }
 
         SimpleComboBox {
@@ -81,9 +91,15 @@ Window {
             Layout.preferredWidth: 63
             Layout.preferredHeight: 151
 
+            currentIndex: findFirstMatch(currentSize)
+
             model: DocumentStyling.getAvailableSizes();
 
             title: qsTr("&Size:")
+
+            onCurrentIndexChanged: {
+                currentSize = pointSelector.model[pointSelector.currentIndex];
+            }
         }
 
         // Spacer Item
@@ -100,9 +116,9 @@ Window {
             Label {
                 anchors.fill: parent
 
-                font.family: DocumentStyling.font
-                font.styleName: DocumentStyling.fontStyle
-                font.pointSize: DocumentStyling.fontSize
+                font.family: currentFamily
+                font.styleName: currentStyle
+                font.pointSize: currentSize
                 text: "AaBbYyZz"
             }
         }
