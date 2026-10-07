@@ -109,18 +109,31 @@ Window {
         GroupBox {
             id: stylePreview
 
+            topPadding: 2
+            bottomPadding: 2
+
+            Layout.alignment: Qt.AlignTop
             Layout.columnSpan: 2
             Layout.fillWidth: true
+
+            // Prevent layout stretching
+            Layout.fillHeight: false
+            Layout.preferredHeight: 81
 
             title: qsTr("Sample")
 
             Label {
                 anchors.fill: parent
 
+                clip: true
+
                 font.family: currentFamily
                 font.styleName: currentStyle
                 font.pointSize: currentSize
+
                 text: "AaBbYyZz"
+                horizontalAlignment: contentWidth >= width ? Qt.AlignLeft : Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
             }
         }
     }
