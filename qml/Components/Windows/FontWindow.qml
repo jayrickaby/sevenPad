@@ -100,6 +100,9 @@ Window {
             Label {
                 anchors.fill: parent
 
+                font.family: DocumentStyling.font
+                font.styleName: DocumentStyling.fontStyle
+                font.pointSize: DocumentStyling.fontSize
                 text: "AaBbYyZz"
             }
         }
