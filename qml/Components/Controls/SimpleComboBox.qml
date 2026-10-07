@@ -16,14 +16,18 @@ ColumnLayout {
     spacing: 0
 
     function findFirstMatch(rawText) {
-        if (!model || rawText === "") {
+        if (!model || !rawText) {
             return 0;
         }
 
-        let text = rawText.toLowerCase();
+        let text = rawText.toString().toLowerCase();
+
+        if (text === "") {
+            return 0;
+        }
 
         for (let i = 0; i < model.length; i++) {
-            var item = model[i].toLowerCase();
+            var item = model[i].toString().toLowerCase();
 
             if (item.startsWith(text)) {
                 return i;
