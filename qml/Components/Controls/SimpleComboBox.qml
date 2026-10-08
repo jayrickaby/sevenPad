@@ -79,8 +79,6 @@ ColumnLayout {
             id: view
             anchors.fill: parent
 
-            rightMargin: scrollBar.visible ? scrollBar.width : 0
-
             clip: true
             currentIndex: control.currentIndex
             delegate: control.delegate

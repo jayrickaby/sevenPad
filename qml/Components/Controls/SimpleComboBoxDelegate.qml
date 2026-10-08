@@ -7,7 +7,9 @@ ItemDelegate {
     required property int index
     required property string modelData
 
-    width: parent ? parent.width : 0
+    property int scrollBarMargin: ListView.view.ScrollBar.vertical.visible ? ListView.view.ScrollBar.vertical.width : 0
+
+    width: parent ? parent.width - scrollBarMargin : 0
 
     highlighted: ListView.isCurrentItem
     text: modelData
