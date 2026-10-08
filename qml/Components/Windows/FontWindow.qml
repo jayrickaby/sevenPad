@@ -25,6 +25,8 @@ Window {
 
     GridLayout {
         anchors.fill: parent
+        anchors.margins: 16
+
         columns: 3
 
         columnSpacing: 16
