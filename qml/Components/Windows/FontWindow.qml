@@ -109,8 +109,10 @@ Window {
         GroupBox {
             id: stylePreview
 
-            topPadding: 2
-            bottomPadding: 2
+            topPadding: 16
+            bottomPadding: 0
+
+            clip: true
 
             Layout.alignment: Qt.AlignTop
             Layout.columnSpan: 2
@@ -132,8 +134,10 @@ Window {
                 font.pointSize: currentSize
 
                 text: "AaBbYyZz"
-                horizontalAlignment: contentWidth >= width ? Qt.AlignLeft : Qt.AlignHCenter
-                verticalAlignment: Qt.AlignVCenter
+                horizontalAlignment: contentWidth >= parent.width ? Text.AlignLeft : Text.AlignHCenter
+                // TODO: The bottom of a standard glyph, e.g. 'a', should be aligned with the bottom
+                // horizontalAlignment: contentHeight >= parent.height ? Text.AlignBottom : Text.AlignVCenter
+                verticalAlignment: Text.AlignVCenter
             }
         }
     }
