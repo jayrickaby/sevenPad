@@ -9,7 +9,7 @@ import "../Controls"
 Window {
     id: control
 
-    property string currentFamily: DocumentStyling.font
+    property string currentFamily: DocumentStyling.fontFamily
     property string currentStyle: DocumentStyling.fontStyle
     property int currentSize: DocumentStyling.fontSize
 
@@ -46,7 +46,7 @@ Window {
                 font.family: modelData;
             }
 
-            model: DocumentStyling.getAvailableFonts()
+            model: DocumentStyling.getFontFamilies()
 
             title: qsTr("&Font:")
 

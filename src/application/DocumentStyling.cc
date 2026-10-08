@@ -7,10 +7,10 @@
 DocumentStyling::DocumentStyling(QObject *parent)
 : QObject(parent),
   m_fontSize(10),
-  m_font(getDefaultFont())
+  m_fontFamily(getDefaultFontFamily())
 {}
 
-QStringList DocumentStyling::getAvailableFonts() {
+QStringList DocumentStyling::getFontFamilies() {
     return QFontDatabase::families();
 }
 
@@ -24,22 +24,22 @@ QList<uint> DocumentStyling::getAvailableSizes() {
     return {8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
 }
 
-QString DocumentStyling::getDefaultFont(QFontDatabase::SystemFont type) {
+QString DocumentStyling::getDefaultFontFamily(QFontDatabase::SystemFont type) {
     // TODO: Check stored default font if allowing user to customise this
     return QFontDatabase::systemFont(type).family();
 }
 
-void DocumentStyling::setFont(const QString &string) {
-    if (m_font != string) {
-        m_font = string;
+void DocumentStyling::setFontFamily(const QString &family) {
+    if (m_fontFamily != family) {
+        m_fontFamily = family;
 
-        emit fontChanged();
+        emit fontFamilyChanged();
     }
 }
 
-void DocumentStyling::setFontStyle(const QString &string) {
-    if (m_fontStyle != string) {
-        m_fontStyle = string;
+void DocumentStyling::setFontStyle(const QString &style) {
+    if (m_fontStyle != style) {
+        m_fontStyle = style;
 
         emit fontStyleChanged();
     }

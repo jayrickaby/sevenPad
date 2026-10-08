@@ -11,35 +11,35 @@
 
 class DocumentStyling : public QObject {
     Q_OBJECT
-    Q_PROPERTY(QString font MEMBER m_font WRITE setFont NOTIFY fontChanged)
+    Q_PROPERTY(QString fontFamily MEMBER m_fontFamily WRITE setFontFamily NOTIFY fontFamilyChanged)
     Q_PROPERTY(QString fontStyle MEMBER m_fontStyle WRITE setFontStyle NOTIFY fontStyleChanged)
     Q_PROPERTY(uint fontSize MEMBER m_fontSize WRITE setFontSize NOTIFY fontSizeChanged)
     QML_SINGLETON
     QML_ELEMENT
 
 signals:
-    void fontChanged();
+    void fontFamilyChanged();
     void fontStyleChanged();
     void fontSizeChanged();
 
 public:
     explicit DocumentStyling(QObject *parent = nullptr);
 
-    void setFont(const QString& string);
-    void setFontStyle(const QString& string);
+    void setFontFamily(const QString& family);
+    void setFontStyle(const QString& style);
     void setFontSize(uint size);
 
 public slots:
     QList<uint> getAvailableSizes();
 
-    QString getDefaultFont(enum QFontDatabase::SystemFont type = QFontDatabase::GeneralFont);
+    QString getDefaultFontFamily(enum QFontDatabase::SystemFont type = QFontDatabase::GeneralFont);
     QString getDefaultStyle();
 
-    QStringList getAvailableFonts();
+    QStringList getFontFamilies();
     QStringList getFontStyles(const QString& family);
 
 private:
-    QString m_font;
+    QString m_fontFamily;
     QString m_fontStyle;
     uint m_fontSize;
 
