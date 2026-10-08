@@ -56,3 +56,12 @@ void DocumentStyling::setFontSize(uint size) {
 QString DocumentStyling::getDefaultStyle() {
     return "Regular";
 }
+
+QStringList DocumentStyling::getFontScripts(const QString &family) {
+    QStringList scripts;
+    for (const auto& script : QFontDatabase::writingSystems(family)) {
+        scripts.append(QFontDatabase::writingSystemName(script));
+    }
+    
+    return scripts;
+}

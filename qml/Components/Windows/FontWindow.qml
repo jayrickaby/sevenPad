@@ -142,6 +142,15 @@ Window {
                 verticalAlignment: Text.AlignVCenter
             }
         }
+
+        // Spacer Item
+        Item {}
+
+        ComboBox {
+            id: scriptSelector
+
+            model: DocumentStyling.getFontScripts(currentFamily)
+        }
     }
 
     Component.onCompleted: {

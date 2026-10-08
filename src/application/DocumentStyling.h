@@ -36,6 +36,7 @@ public slots:
     QString getDefaultStyle();
 
     QStringList getFontFamilies();
+    QStringList getFontScripts(const QString& family);
     QStringList getFontStyles(const QString& family);
 
 private:
