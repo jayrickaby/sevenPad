@@ -10,6 +10,7 @@ Window {
     id: control
 
     property string currentFamily: DocumentStyling.fontFamily
+    property string currentScript: DocumentStyling.currentScript
     property string currentStyle: DocumentStyling.fontStyle
     property int currentSize: DocumentStyling.fontSize
 
@@ -149,7 +150,14 @@ Window {
         ComboBox {
             id: scriptSelector
 
+            Layout.columnSpan: 2
+            Layout.fillWidth: true
+
             model: DocumentStyling.getFontScripts(currentFamily)
+
+            onCurrentIndexChanged: {
+                currentScript = scriptSelector.model[scriptSelector.currentIndex]
+            }
         }
     }
 
