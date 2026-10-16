@@ -159,6 +159,22 @@ Window {
                 currentScript = scriptSelector.model[scriptSelector.currentIndex]
             }
         }
+
+        // Spacer Item
+        Item {}
+
+        RowLayout {
+            Layout.columnSpan: 2
+            Layout.fillWidth: true
+
+            Button {
+                text: "OK"
+            }
+
+            Button {
+                text: "Cancel"
+            }
+        }
     }
 
     Component.onCompleted: {
