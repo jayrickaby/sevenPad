@@ -97,7 +97,7 @@ Window {
 
             currentIndex: findFirstMatch(currentSize)
 
-            model: DocumentStyling.getAvailableSizes();
+            model: DocumentStyling.getFontSizes(currentFamily, currentStyle);
 
             title: qsTr("&Size:")
 

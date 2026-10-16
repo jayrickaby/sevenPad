@@ -19,11 +19,6 @@ QStringList DocumentStyling::getFontStyles(const QString& family) {
     return QFontDatabase::styles(family);
 }
 
-QList<uint> DocumentStyling::getAvailableSizes() {
-    // TODO: Is there a default for this?
-    return {8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
-}
-
 QString DocumentStyling::getDefaultFontFamily(QFontDatabase::SystemFont type) {
     // TODO: Check stored default font if allowing user to customise this
     return QFontDatabase::systemFont(type).family();
@@ -64,4 +59,14 @@ QStringList DocumentStyling::getFontScripts(const QString &family) {
     }
     
     return scripts;
+}
+
+QList<int> DocumentStyling::getFontSizes(const QString &family, const QString &style) {
+    QList<int> sizes {QFontDatabase::pointSizes(family, style)};
+
+    if (sizes.isEmpty()) {
+        return QFontDatabase::standardSizes();
+    }
+
+    return sizes;
 }
