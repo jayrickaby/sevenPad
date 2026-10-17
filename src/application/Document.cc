@@ -2,29 +2,29 @@
 // Created by jay on 04/10/2026.
 //
 
-#include "DocumentStyling.h"
+#include "Document.h"
 
-DocumentStyling::DocumentStyling(QObject *parent)
+Document::Document(QObject *parent)
 : QObject(parent),
   m_fontSize(10),
   m_fontFamily(getDefaultFontFamily())
 {}
 
-QStringList DocumentStyling::getFontFamilies() {
+QStringList Document::getFontFamilies() {
     return QFontDatabase::families();
 }
 
-QStringList DocumentStyling::getFontStyles(const QString& family) {
+QStringList Document::getFontStyles(const QString& family) {
     // TODO: This is ordered in a specific way in Windows. Removes the need for getDefaultStyle()
     return QFontDatabase::styles(family);
 }
 
-QString DocumentStyling::getDefaultFontFamily(QFontDatabase::SystemFont type) {
+QString Document::getDefaultFontFamily(QFontDatabase::SystemFont type) {
     // TODO: Check stored default font if allowing user to customise this
     return QFontDatabase::systemFont(type).family();
 }
 
-void DocumentStyling::setFontFamily(const QString &family) {
+void Document::setFontFamily(const QString &family) {
     if (m_fontFamily != family) {
         m_fontFamily = family;
 
@@ -32,7 +32,7 @@ void DocumentStyling::setFontFamily(const QString &family) {
     }
 }
 
-void DocumentStyling::setFontScript(const QString& script) {
+void Document::setFontScript(const QString& script) {
     if (m_fontScript != script) {
         m_fontScript = script;
 
@@ -40,7 +40,7 @@ void DocumentStyling::setFontScript(const QString& script) {
     }
 }
 
-void DocumentStyling::setFontStyle(const QString &style) {
+void Document::setFontStyle(const QString &style) {
     if (m_fontStyle != style) {
         m_fontStyle = style;
 
@@ -48,7 +48,7 @@ void DocumentStyling::setFontStyle(const QString &style) {
     }
 }
 
-void DocumentStyling::setFontSize(int size) {
+void Document::setFontSize(int size) {
     if (m_fontSize != size) {
         m_fontSize = size;
 
@@ -56,11 +56,11 @@ void DocumentStyling::setFontSize(int size) {
     }
 }
 
-QString DocumentStyling::getDefaultStyle() {
+QString Document::getDefaultStyle() {
     return "Regular";
 }
 
-QStringList DocumentStyling::getFontScripts(const QString &family) {
+QStringList Document::getFontScripts(const QString &family) {
     QStringList scripts;
     for (const auto& script : QFontDatabase::writingSystems(family)) {
         scripts.append(QFontDatabase::writingSystemName(script));
@@ -69,7 +69,7 @@ QStringList DocumentStyling::getFontScripts(const QString &family) {
     return scripts;
 }
 
-QList<int> DocumentStyling::getFontSizes(const QString &family, const QString &style) {
+QList<int> Document::getFontSizes(const QString &family, const QString &style) {
     QList<int> sizes {QFontDatabase::pointSizes(family, style)};
 
     if (sizes.isEmpty()) {
@@ -79,7 +79,7 @@ QList<int> DocumentStyling::getFontSizes(const QString &family, const QString &s
     return sizes;
 }
 
-void DocumentStyling::setWordWrapped(bool wrapped) {
+void Document::setWordWrapped(bool wrapped) {
     if (m_wordWrapped != wrapped) {
         m_wordWrapped = wrapped;
 

@@ -2,14 +2,14 @@
 // Created by jay on 04/10/2026.
 //
 
-#ifndef SEVENPAD_DOCUMENTSTYLING_H_
-#define SEVENPAD_DOCUMENTSTYLING_H_
+#ifndef SEVENPAD_DOCUMENT_H_
+#define SEVENPAD_DOCUMENT_H_
 
 #include <qqml.h>
 #include <QFontDatabase>
 
 
-class DocumentStyling : public QObject {
+class Document : public QObject {
     Q_OBJECT
     Q_PROPERTY(bool wordWrapped MEMBER m_wordWrapped WRITE setWordWrapped NOTIFY wordWrappedChanged)
     Q_PROPERTY(int fontSize MEMBER m_fontSize WRITE setFontSize NOTIFY fontSizeChanged)
@@ -27,7 +27,7 @@ signals:
     void wordWrappedChanged();
 
 public:
-    explicit DocumentStyling(QObject *parent = nullptr);
+    explicit Document(QObject *parent = nullptr);
 
     void setFontFamily(const QString& family);
     void setFontScript(const QString& script);
@@ -52,4 +52,4 @@ private:
 };
 
 
-#endif // SEVENPAD_DOCUMENTSTYLING_H_
+#endif // SEVENPAD_DOCUMENT_H_

@@ -9,12 +9,12 @@ ScrollView {
     TextArea {
         id: document
 
-        width: DocumentStyling.wordWrapped ? control.availableWidth : implicitWidth
+        width: Document.wordWrapped ? control.availableWidth : implicitWidth
 
-        font.family: DocumentStyling.fontFamily
-        font.pointSize: DocumentStyling.fontSize
-        font.styleName: DocumentStyling.fontStyle
+        font.family: Document.fontFamily
+        font.pointSize: Document.fontSize
+        font.styleName: Document.fontStyle
 
-        wrapMode: DocumentStyling.wordWrapped ? TextEdit.WordWrap : TextEdit.NoWrap
+        wrapMode: Document.wordWrapped ? TextEdit.WordWrap : TextEdit.NoWrap
     }
 }
