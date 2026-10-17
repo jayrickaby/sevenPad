@@ -12,5 +12,7 @@ ScrollView {
         font.family: DocumentStyling.fontFamily
         font.pointSize: DocumentStyling.fontSize
         font.styleName: DocumentStyling.fontStyle
+
+        wrapMode: DocumentStyling.wordWrapState ? TextEdit.WordWrap : TextEdit.NoWrap
     }
 }
