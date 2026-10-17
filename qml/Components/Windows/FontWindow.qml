@@ -164,11 +164,10 @@ Window {
             }
         }
 
-        // Spacer Item
-        Item {}
-
         Label {
             readonly property string rawText: qsTr("Show more fonts")
+
+            Layout.fillWidth: true
 
             text: `<a href="exec">${rawText}</a>`
 
@@ -180,8 +179,10 @@ Window {
             Layout.columnSpan: 2
         }
 
+
         RowLayout {
-            Layout.columnSpan: 2
+            Layout.alignment: Qt.AlignRight
+            Layout.columnSpan: 3
             Layout.fillWidth: true
 
             Button {
