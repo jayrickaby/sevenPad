@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 
+import jayrickaby.sevenPad
+
 import "./Components"
 
 ApplicationWindow {
@@ -27,7 +29,22 @@ ApplicationWindow {
         anchors.fill: parent
     }
 
+    FontWindow {
+        id: fontWindow
+
+        width: 441
+        height: 477
+
+        modality: Qt.WindowModal
+
+        visible: false
+    }
+
     footer: NotepadStatusBar {
         id: statusBar
+    }
+
+    function openFontSelector() {
+        fontWindow.show();
     }
 }

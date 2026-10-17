@@ -5,4 +5,6 @@ Action {
     id: action
 
     text: qsTr("&Font...")
+
+    onTriggered: root.openFontSelector()
 }
