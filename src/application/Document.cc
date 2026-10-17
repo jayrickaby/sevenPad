@@ -126,3 +126,11 @@ QList<int> Document::getCursor2dPosition() {
 
     return {row + 1, col + 1};
 }
+
+void Document::setShowStatusBar(bool show) {
+    if (m_showStatusBar != show) {
+        m_showStatusBar = show;
+
+        emit showStatusBarChanged();
+    }
+}

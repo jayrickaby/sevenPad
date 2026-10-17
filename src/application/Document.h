@@ -12,6 +12,7 @@
 
 class Document : public QObject {
     Q_OBJECT
+    Q_PROPERTY(bool showStatusBar MEMBER m_showStatusBar WRITE setShowStatusBar NOTIFY showStatusBarChanged)
     Q_PROPERTY(bool wordWrapped MEMBER m_wordWrapped WRITE setWordWrapped NOTIFY wordWrappedChanged)
     Q_PROPERTY(int cursorPosition MEMBER m_cursorPosition WRITE setCursorPosition NOTIFY cursorPositionChanged)
     Q_PROPERTY(int fontSize MEMBER m_fontSize WRITE setFontSize NOTIFY fontSizeChanged)
@@ -29,6 +30,7 @@ signals:
     void fontScriptChanged();
     void fontSizeChanged();
     void fontStyleChanged();
+    void showStatusBarChanged();
     void textChanged();
     void wordWrappedChanged();
 
@@ -40,6 +42,7 @@ public:
     void setFontScript(const QString& script);
     void setFontSize(int size);
     void setFontStyle(const QString& style);
+    void setShowStatusBar(bool show);
     void setText(const QString& text);
     void setWordWrapped(bool wrapped);
 
@@ -53,6 +56,7 @@ public slots:
     QStringList getFontStyles(const QString& family);
 
 private:
+    bool m_showStatusBar {false};
     bool m_wordWrapped {false};
     int m_cursorPosition {0};
     int m_fontSize;

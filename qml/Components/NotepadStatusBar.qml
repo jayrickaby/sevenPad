@@ -9,6 +9,8 @@ ToolBar {
 
     property list<int> cursor2dPosition: Document.cursor2dPosition
 
+    visible: Document.showStatusBar && !Document.wordWrapped
+
     RowLayout {
         // Spacer
         anchors.fill: parent
