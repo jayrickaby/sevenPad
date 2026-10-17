@@ -10,7 +10,7 @@ I made this to help provide accompanying software to [AeroThemePlasma](https://g
 - Text Editing Capabilities
 - ~~File Opening and Saving~~ (TODO)
 - ~~Directly Open Files From Explorer~~ (TODO)
-- ~~Font Selection~~ (TODO)
+- Font Selection
 - ~~User Interaction and Settings Saving~~ (TODO)
 - ~~Native Theming to Any Desktop Environment~~ (TODO)
 - ~~Page Setup & Print Capabilities~~ (TODO)
