@@ -167,6 +167,18 @@ Window {
         // Spacer Item
         Item {}
 
+        Label {
+            readonly property string rawText: qsTr("Show more fonts")
+
+            text: `<a href="exec">${rawText}</a>`
+
+        }
+
+        // Spacer Item
+        Item {
+            Layout.columnSpan: 2
+        }
+
         RowLayout {
             Layout.columnSpan: 2
             Layout.fillWidth: true
