@@ -12,6 +12,8 @@ ToolBar {
     visible: Document.showStatusBar && !Document.wordWrapped
 
     RowLayout {
+        spacing: 12
+
         // Spacer
         anchors.fill: parent
 
