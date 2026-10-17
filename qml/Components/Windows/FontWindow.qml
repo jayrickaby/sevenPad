@@ -148,20 +148,34 @@ Window {
         // Spacer Item
         Item {}
 
-        ComboBox {
-            id: scriptSelector
-
+        ColumnLayout {
             Layout.columnSpan: 2
             Layout.fillWidth: true
 
-            // TODO: Enable when a viable way of choosing scripts is figured
-            enabled: false
+            MnemonicLabel {
+                rawText: qsTr("Sc&ript:")
 
-            model: DocumentStyling.getFontScripts(currentFamily)
-
-            onCurrentIndexChanged: {
-                currentScript = scriptSelector.model[scriptSelector.currentIndex]
+                action: function() {
+                    scriptSelector.forceActiveFocus();
+                }
             }
+
+            ComboBox {
+                id: scriptSelector
+
+                Layout.columnSpan: 2
+                Layout.fillWidth: true
+
+                // TODO: Enable when a viable way of choosing scripts is figured
+                enabled: false
+
+                model: DocumentStyling.getFontScripts(currentFamily)
+
+                onCurrentIndexChanged: {
+                    currentScript = scriptSelector.model[scriptSelector.currentIndex]
+                }
+            }
+
         }
 
         Label {
