@@ -4,6 +4,7 @@ import QtQuick.Layouts
 
 import jayrickaby.sevenPad
 
+import "../Actions/Window"
 import "../Controls"
 
 Window {
@@ -169,12 +170,26 @@ Window {
 
             Button {
                 text: "OK"
+
+                onPressed: {
+                    actionClose.trigger()
+                }
             }
 
             Button {
                 text: "Cancel"
+
+                onPressed: {
+                    actionClose.trigger()
+                }
             }
         }
+    }
+
+    CloseAction {
+        id: actionClose
+
+        window: control
     }
 
     Component.onCompleted: {
