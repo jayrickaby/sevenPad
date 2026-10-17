@@ -86,3 +86,11 @@ void Document::setWordWrapped(bool wrapped) {
         emit wordWrappedChanged();
     }
 }
+
+void Document::setCursorPosition(int pos) {
+    if (m_cursorPosition != pos) {
+        m_cursorPosition = pos;
+
+        emit cursorPositionChanged();
+    }
+}

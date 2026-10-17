@@ -16,5 +16,9 @@ ScrollView {
         font.styleName: Document.fontStyle
 
         wrapMode: Document.wordWrapped ? TextEdit.WordWrap : TextEdit.NoWrap
+
+        onCursorPositionChanged: {
+            Document.cursorPosition = document.cursorPosition;
+        }
     }
 }

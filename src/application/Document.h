@@ -12,6 +12,7 @@
 class Document : public QObject {
     Q_OBJECT
     Q_PROPERTY(bool wordWrapped MEMBER m_wordWrapped WRITE setWordWrapped NOTIFY wordWrappedChanged)
+    Q_PROPERTY(int cursorPosition MEMBER m_cursorPosition WRITE setCursorPosition NOTIFY cursorPositionChanged)
     Q_PROPERTY(int fontSize MEMBER m_fontSize WRITE setFontSize NOTIFY fontSizeChanged)
     Q_PROPERTY(QString fontFamily MEMBER m_fontFamily WRITE setFontFamily NOTIFY fontFamilyChanged)
     Q_PROPERTY(QString fontScript MEMBER m_fontScript WRITE setFontScript NOTIFY fontScriptChanged)
@@ -20,6 +21,7 @@ class Document : public QObject {
     QML_ELEMENT
 
 signals:
+    void cursorPositionChanged();
     void fontFamilyChanged();
     void fontScriptChanged();
     void fontSizeChanged();
@@ -29,6 +31,7 @@ signals:
 public:
     explicit Document(QObject *parent = nullptr);
 
+    void setCursorPosition(int pos);
     void setFontFamily(const QString& family);
     void setFontScript(const QString& script);
     void setFontSize(int size);
@@ -45,6 +48,7 @@ public slots:
 
 private:
     bool m_wordWrapped {false};
+    int m_cursorPosition {0};
     int m_fontSize;
     QString m_fontFamily;
     QString m_fontScript;
