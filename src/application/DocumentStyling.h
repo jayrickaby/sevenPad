@@ -11,7 +11,7 @@
 
 class DocumentStyling : public QObject {
     Q_OBJECT
-    Q_PROPERTY(bool wordWrapState MEMBER m_wordWrapState WRITE setWordWrapState NOTIFY wordWrapStateChanged)
+    Q_PROPERTY(bool wordWrapped MEMBER m_wordWrapped WRITE setWordWrapped NOTIFY wordWrappedChanged)
     Q_PROPERTY(int fontSize MEMBER m_fontSize WRITE setFontSize NOTIFY fontSizeChanged)
     Q_PROPERTY(QString fontFamily MEMBER m_fontFamily WRITE setFontFamily NOTIFY fontFamilyChanged)
     Q_PROPERTY(QString fontScript MEMBER m_fontScript WRITE setFontScript NOTIFY fontScriptChanged)
@@ -24,7 +24,7 @@ signals:
     void fontScriptChanged();
     void fontSizeChanged();
     void fontStyleChanged();
-    void wordWrapStateChanged();
+    void wordWrappedChanged();
 
 public:
     explicit DocumentStyling(QObject *parent = nullptr);
@@ -33,7 +33,7 @@ public:
     void setFontScript(const QString& script);
     void setFontSize(int size);
     void setFontStyle(const QString& style);
-    void setWordWrapState(bool state);
+    void setWordWrapped(bool wrapped);
 
 public slots:
     QList<int> getFontSizes(const QString& family, const QString& style);
@@ -44,7 +44,7 @@ public slots:
     QStringList getFontStyles(const QString& family);
 
 private:
-    bool m_wordWrapState {false};
+    bool m_wordWrapped {false};
     int m_fontSize;
     QString m_fontFamily;
     QString m_fontScript;

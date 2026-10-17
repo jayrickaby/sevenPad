@@ -79,10 +79,10 @@ QList<int> DocumentStyling::getFontSizes(const QString &family, const QString &s
     return sizes;
 }
 
-void DocumentStyling::setWordWrapState(bool state) {
-    if (m_wordWrapState != state) {
-        m_wordWrapState = state;
+void DocumentStyling::setWordWrapped(bool wrapped) {
+    if (m_wordWrapped != wrapped) {
+        m_wordWrapped = wrapped;
 
-        emit wordWrapStateChanged();
+        emit wordWrappedChanged();
     }
 }
