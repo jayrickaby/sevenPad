@@ -9,6 +9,8 @@ ScrollView {
     TextArea {
         id: document
 
+        width: DocumentStyling.wordWrapState ? control.availableWidth : implicitWidth
+
         font.family: DocumentStyling.fontFamily
         font.pointSize: DocumentStyling.fontSize
         font.styleName: DocumentStyling.fontStyle
