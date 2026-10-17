@@ -4,11 +4,14 @@
 
 #include "Document.h"
 
+#include <qtyperevision.h>
+
 Document::Document(QObject *parent)
 : QObject(parent),
   m_fontSize(10),
-  m_fontFamily(getDefaultFontFamily())
-{}
+  m_fontFamily(getDefaultFontFamily()) {
+    Document::connect(this, &Document::textChanged, this, &Document::cursorPositionChanged);
+}
 
 QStringList Document::getFontFamilies() {
     return QFontDatabase::families();
@@ -101,4 +104,25 @@ void Document::setText(const QString &text) {
 
         emit textChanged();
     }
+}
+
+QList<int> Document::getCursor2dPosition() {
+    QStringView textBeforeCursor {QStringView(m_text).left(m_cursorPosition + 1)};
+
+    // Start at -1 as it resolves to subtracting 0 when getting column if theres no new lines
+    int lastNewLine = -1;
+    int row = 0;
+
+    for (int  i = 0; i < textBeforeCursor.length(); i++) {
+        QChar ch = textBeforeCursor.at(i);
+
+        if (ch == QChar('\n')) {
+            row++;
+            lastNewLine = i;
+        }
+    }
+    // +1 to lastNewLine as it is 2 chars
+    int col = textBeforeCursor.length() - (lastNewLine + 1);
+
+    return {row + 1, col + 1};
 }

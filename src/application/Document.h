@@ -7,6 +7,7 @@
 
 #include <qqml.h>
 #include <QFontDatabase>
+#include <QStringView>
 
 
 class Document : public QObject {
@@ -14,6 +15,7 @@ class Document : public QObject {
     Q_PROPERTY(bool wordWrapped MEMBER m_wordWrapped WRITE setWordWrapped NOTIFY wordWrappedChanged)
     Q_PROPERTY(int cursorPosition MEMBER m_cursorPosition WRITE setCursorPosition NOTIFY cursorPositionChanged)
     Q_PROPERTY(int fontSize MEMBER m_fontSize WRITE setFontSize NOTIFY fontSizeChanged)
+    Q_PROPERTY(QList<int> cursor2dPosition READ getCursor2dPosition NOTIFY cursorPositionChanged)
     Q_PROPERTY(QString fontFamily MEMBER m_fontFamily WRITE setFontFamily NOTIFY fontFamilyChanged)
     Q_PROPERTY(QString fontScript MEMBER m_fontScript WRITE setFontScript NOTIFY fontScriptChanged)
     Q_PROPERTY(QString fontStyle MEMBER m_fontStyle WRITE setFontStyle NOTIFY fontStyleChanged)
@@ -42,6 +44,7 @@ public:
     void setWordWrapped(bool wrapped);
 
 public slots:
+    QList<int> getCursor2dPosition();
     QList<int> getFontSizes(const QString& family, const QString& style);
     QString getDefaultFontFamily(enum QFontDatabase::SystemFont type = QFontDatabase::GeneralFont);
     QString getDefaultStyle();
