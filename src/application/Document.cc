@@ -94,3 +94,11 @@ void Document::setCursorPosition(int pos) {
         emit cursorPositionChanged();
     }
 }
+
+void Document::setText(const QString &text) {
+    if (m_text != text) {
+        m_text = text;
+
+        emit textChanged();
+    }
+}

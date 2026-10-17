@@ -17,6 +17,7 @@ class Document : public QObject {
     Q_PROPERTY(QString fontFamily MEMBER m_fontFamily WRITE setFontFamily NOTIFY fontFamilyChanged)
     Q_PROPERTY(QString fontScript MEMBER m_fontScript WRITE setFontScript NOTIFY fontScriptChanged)
     Q_PROPERTY(QString fontStyle MEMBER m_fontStyle WRITE setFontStyle NOTIFY fontStyleChanged)
+    Q_PROPERTY(QString text MEMBER m_text WRITE setText NOTIFY textChanged)
     QML_SINGLETON
     QML_ELEMENT
 
@@ -26,6 +27,7 @@ signals:
     void fontScriptChanged();
     void fontSizeChanged();
     void fontStyleChanged();
+    void textChanged();
     void wordWrappedChanged();
 
 public:
@@ -36,6 +38,7 @@ public:
     void setFontScript(const QString& script);
     void setFontSize(int size);
     void setFontStyle(const QString& style);
+    void setText(const QString& text);
     void setWordWrapped(bool wrapped);
 
 public slots:
@@ -53,6 +56,7 @@ private:
     QString m_fontFamily;
     QString m_fontScript;
     QString m_fontStyle;
+    QString m_text;
 };
 
 

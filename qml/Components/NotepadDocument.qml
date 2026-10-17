@@ -20,5 +20,9 @@ ScrollView {
         onCursorPositionChanged: {
             Document.cursorPosition = document.cursorPosition;
         }
+
+        onTextChanged: {
+            Document.text = document.text;
+        }
     }
 }
