@@ -16,6 +16,8 @@ qt_standard_project_setup(REQUIRES 6.11.2)
 add_executable(sevenPad src/main.cc
         src/application/DocumentStyling.cc
         src/application/DocumentStyling.h
+        src/system/FontSettingsExecutable.cc
+        src/system/FontSettingsExecutable.h
 )
 
 qt_add_qml_module(sevenPad
@@ -64,6 +66,7 @@ qt_add_qml_module(sevenPad
 target_include_directories(sevenPad PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${CMAKE_CURRENT_SOURCE_DIR}/src/application
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/system
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

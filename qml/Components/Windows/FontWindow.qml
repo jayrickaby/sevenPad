@@ -172,6 +172,7 @@ Window {
 
             text: `<a href="exec">${rawText}</a>`
 
+            onLinkActivated: FontSettingsExecutable.run();
         }
 
         // Spacer Item
