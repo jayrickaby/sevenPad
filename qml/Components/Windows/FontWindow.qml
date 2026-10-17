@@ -172,7 +172,11 @@ Window {
                 text: "OK"
 
                 onPressed: {
-                    actionClose.trigger()
+                    DocumentStyling.fontFamily = currentFamily;
+                    DocumentStyling.fontStyle = currentStyle;
+                    DocumentStyling.fontSize = currentSize;
+                    // TODO: Save script
+                    actionClose.trigger();
                 }
             }
 
@@ -180,7 +184,7 @@ Window {
                 text: "Cancel"
 
                 onPressed: {
-                    actionClose.trigger()
+                    actionClose.trigger();
                 }
             }
         }
