@@ -14,8 +14,8 @@ find_package(Qt6 REQUIRED COMPONENTS
 qt_standard_project_setup(REQUIRES 6.11.2)
 
 add_executable(sevenPad src/main.cc
-        src/application/DocumentStyling.cc
-        src/application/DocumentStyling.h
+        src/application/Document.cc
+        src/application/Document.h
         src/system/FontSettingsExecutable.cc
         src/system/FontSettingsExecutable.h
 )

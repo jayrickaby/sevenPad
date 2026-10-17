@@ -2,10 +2,18 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+import jayrickaby.sevenPad
+
 ToolBar {
     id: control
 
+    property list<int> cursor2dPosition: Document.cursor2dPosition
+
+    visible: Document.showStatusBar && !Document.wordWrapped
+
     RowLayout {
+        spacing: 12
+
         // Spacer
         anchors.fill: parent
 
@@ -21,7 +29,7 @@ ToolBar {
             Layout.fillWidth: true
 
             // TODO: Match to current cursor start position
-            text: "Ln 1, Col 1"
+            text: `Ln ${cursor2dPosition[0]}, Col ${cursor2dPosition[1]}`
         }
     }
 }

@@ -10,10 +10,10 @@ import "../Controls"
 Window {
     id: control
 
-    property int currentSize: DocumentStyling.fontSize
-    property string currentFamily: DocumentStyling.fontFamily
-    property string currentScript: DocumentStyling.fontScript
-    property string currentStyle: DocumentStyling.fontStyle
+    property int currentSize: Document.fontSize
+    property string currentFamily: Document.fontFamily
+    property string currentScript: Document.fontScript
+    property string currentStyle: Document.fontStyle
 
     maximumWidth: width
     maximumHeight: height
@@ -50,13 +50,13 @@ Window {
                 font.family: modelData;
             }
 
-            model: DocumentStyling.getFontFamilies()
+            model: Document.getFontFamilies()
 
             title: qsTr("&Font:")
 
             onCurrentIndexChanged: {
                 currentFamily = fontSelector.model[fontSelector.currentIndex];
-                styleSelector.currentIndex = styleSelector.findFirstMatch(DocumentStyling.getDefaultStyle());
+                styleSelector.currentIndex = styleSelector.findFirstMatch(Document.getDefaultStyle());
             }
         }
 
@@ -70,14 +70,14 @@ Window {
             Layout.preferredWidth: 131
             Layout.preferredHeight: 160
 
-            currentIndex: currentStyle ? findFirstMatch(currentStyle) : findFirstMatch(DocumentStyling.getDefaultStyle)
+            currentIndex: currentStyle ? findFirstMatch(currentStyle) : findFirstMatch(Document.getDefaultStyle)
 
             delegate: SimpleComboBoxDelegate {
                 font.family: currentFamily
                 font.styleName: modelData;
             }
 
-            model: DocumentStyling.getFontStyles(currentFamily);
+            model: Document.getFontStyles(currentFamily);
 
             title: qsTr("Font St&yle:")
 
@@ -98,7 +98,7 @@ Window {
 
             currentIndex: findFirstMatch(currentSize)
 
-            model: DocumentStyling.getFontSizes(currentFamily, currentStyle);
+            model: Document.getFontSizes(currentFamily, currentStyle);
 
             title: qsTr("&Size:")
 
@@ -169,7 +169,7 @@ Window {
                 // TODO: Enable when a viable way of choosing scripts is figured
                 enabled: false
 
-                model: DocumentStyling.getFontScripts(currentFamily)
+                model: Document.getFontScripts(currentFamily)
 
                 onCurrentIndexChanged: {
                     currentScript = scriptSelector.model[scriptSelector.currentIndex]
@@ -203,10 +203,10 @@ Window {
                 text: "OK"
 
                 onPressed: {
-                    DocumentStyling.fontFamily = currentFamily;
-                    DocumentStyling.fontScript = currentScript;
-                    DocumentStyling.fontSize = currentSize;
-                    DocumentStyling.fontStyle = currentStyle;
+                    Document.fontFamily = currentFamily;
+                    Document.fontScript = currentScript;
+                    Document.fontSize = currentSize;
+                    Document.fontStyle = currentStyle;
                     actionClose.trigger();
                 }
             }

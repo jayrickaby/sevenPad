@@ -8,10 +8,10 @@ Action {
 
     text: qsTr("&Word Wrap")
 
-    checked: DocumentStyling.wordWrapped
+    checked: Document.wordWrapped
     checkable: true
 
     onCheckedChanged: (checked) => {
-        DocumentStyling.wordWrapped = checked;
+        Document.wordWrapped = checked;
     }
 }
