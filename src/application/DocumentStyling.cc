@@ -32,6 +32,14 @@ void DocumentStyling::setFontFamily(const QString &family) {
     }
 }
 
+void DocumentStyling::setFontScript(const QString& script) {
+    if (m_fontScript != script) {
+        m_fontScript = script;
+
+        emit fontScriptChanged();
+    }
+}
+
 void DocumentStyling::setFontStyle(const QString &style) {
     if (m_fontStyle != style) {
         m_fontStyle = style;
@@ -40,7 +48,7 @@ void DocumentStyling::setFontStyle(const QString &style) {
     }
 }
 
-void DocumentStyling::setFontSize(uint size) {
+void DocumentStyling::setFontSize(int size) {
     if (m_fontSize != size) {
         m_fontSize = size;
 

@@ -10,10 +10,10 @@ import "../Controls"
 Window {
     id: control
 
-    property string currentFamily: DocumentStyling.fontFamily
-    property string currentScript: DocumentStyling.currentScript
-    property string currentStyle: DocumentStyling.fontStyle
     property int currentSize: DocumentStyling.fontSize
+    property string currentFamily: DocumentStyling.fontFamily
+    property string currentScript: DocumentStyling.fontScript
+    property string currentStyle: DocumentStyling.fontStyle
 
     maximumWidth: width
     maximumHeight: height
@@ -173,9 +173,9 @@ Window {
 
                 onPressed: {
                     DocumentStyling.fontFamily = currentFamily;
-                    DocumentStyling.fontStyle = currentStyle;
+                    DocumentStyling.fontScript = currentScript;
                     DocumentStyling.fontSize = currentSize;
-                    // TODO: Save script
+                    DocumentStyling.fontStyle = currentStyle;
                     actionClose.trigger();
                 }
             }
