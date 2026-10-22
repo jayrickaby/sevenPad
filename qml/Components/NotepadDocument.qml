@@ -6,6 +6,9 @@ import jayrickaby.sevenPad
 ScrollView {
     id: control
 
+    ScrollBar.horizontal.policy: ScrollBar.AlwaysOn
+    ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+
     TextArea {
         id: document
 
