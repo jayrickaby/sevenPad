@@ -8,6 +8,8 @@ ScrollView {
 
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOn
     ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+    ScrollBar.vertical.visible: true
+    ScrollBar.vertical.enabled: true
 
     TextArea {
         id: document
