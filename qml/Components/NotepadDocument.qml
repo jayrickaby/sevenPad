@@ -30,5 +30,12 @@ ScrollView {
         onTextChanged: {
             Document.text = document.text;
         }
+
+        Connections {
+            target: FileManager
+            function onCurrentFileChanged() {
+                document.text = FileManager.currentFileText;
+            }
+        }
     }
 }

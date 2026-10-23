@@ -11,6 +11,7 @@
 class FileManager : public QObject {
     Q_OBJECT
     Q_PROPERTY(QString currentFile READ getCurrentFile WRITE setCurrentFile NOTIFY currentFileChanged)
+    Q_PROPERTY(QByteArray currentFileText READ getCurrentFileContents NOTIFY currentFileChanged)
     QML_SINGLETON
     QML_ELEMENT
 
@@ -20,7 +21,7 @@ signals:
 public:
     explicit FileManager(QObject *parent = nullptr);
 
-    QByteArray getFileContents(const QString& path);
+    QByteArray getCurrentFileContents();
     QString getCurrentFile();
 
     void setCurrentFile(const QString& path);

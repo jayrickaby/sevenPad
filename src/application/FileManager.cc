@@ -15,8 +15,27 @@ QString FileManager::getCurrentFile() {
 
     return "Untitled";
 }
-QByteArray FileManager::getFileContents(const QString& path) {
-    return {};
+
+QByteArray FileManager::getCurrentFileContents() {
+    if (!m_currentFile.get()) {
+        return {};
+    }
+
+    qDebug() << "reading contents of:" << *m_currentFile;
+
+    QFile text {*m_currentFile};
+
+    if (!text.open({QIODeviceBase::ReadOnly})) {
+        qDebug() << "failed to read contents of:" << *m_currentFile;
+        // TODO: Turn into overload of setCurrentFile
+        m_currentFile = nullptr;
+        emit currentFileChanged();
+        return {};
+    }
+
+    qDebug() << "successfully read contents of:" << *m_currentFile;
+
+    return text.readAll();
 }
 
 void FileManager::setCurrentFile(const QString& path) {
