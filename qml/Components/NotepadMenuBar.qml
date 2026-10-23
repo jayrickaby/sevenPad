@@ -6,6 +6,8 @@ import "./Menus"
 MenuBar {
     id: control
 
+    property alias file: menuFile
+
     FileMenu {
         id: menuFile
     }

@@ -8,6 +8,8 @@ import "../Actions/File"
 Menu {
     id: control
 
+    property alias open: actionOpen
+
     title: qsTr("&File")
 
     NewFileAction {

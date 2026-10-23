@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Dialogs
 
 import jayrickaby.sevenPad
 
@@ -17,16 +18,25 @@ ApplicationWindow {
     x: 50
     y: 50
 
+    title: FileManager.currentFile
     visible: true
 
     menuBar: NotepadMenuBar {
         id: menuBar
+
+        file.open.dialog: openDialog
     }
 
     NotepadDocument {
         id: document
 
         anchors.fill: parent
+    }
+
+    FileDialog {
+        id: openDialog
+
+        onSelectedFileChanged: FileManager.currentFile = selectedFile
     }
 
     FontWindow {
