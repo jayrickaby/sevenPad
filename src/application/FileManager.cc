@@ -20,8 +20,10 @@ QByteArray FileManager::getFileContents(const QString& path) {
 }
 
 void FileManager::setCurrentFile(const QString& path) {
-    if (!m_currentFile.get() || *m_currentFile != path) {
-        m_currentFile = std::make_unique<QString>(path);
+    QString purePath = QUrl(path).toLocalFile();
+
+    if (!m_currentFile.get() || *m_currentFile != purePath) {
+        m_currentFile = std::make_unique<QString>(purePath);
 
         emit currentFileChanged();
     }
