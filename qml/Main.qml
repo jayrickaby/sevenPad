@@ -55,6 +55,21 @@ ApplicationWindow {
         }
     }
 
+    FileDialog {
+        id: saveAsDialog
+
+        title: qsTr("Save As")
+
+        fileMode: FileDialog.SaveFile
+
+        defaultSuffix: "*.txt"
+        nameFilters: ["Text Documents (*.txt)", "All Files (*.*)"]
+
+        onAccepted: {
+            FileManager.saveAs(saveAsDialog.selectedFile, document.text)
+        }
+    }
+
     FontWindow {
         id: fontWindow
 
