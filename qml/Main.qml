@@ -18,9 +18,19 @@ ApplicationWindow {
     x: 50
     y: 50
 
-    title: FileManager.currentFilePath
+    title: mainTitle();
     visible: true
 
+    function mainTitle() {
+        let base = FileManager.currentFilePath;
+
+        if (FileManager.currentFileModified) {
+            base += "*";
+        }
+        console.log(FileManager.currentFileModified);
+
+        return base;
+    }
     menuBar: NotepadMenuBar {
         id: menuBar
 
