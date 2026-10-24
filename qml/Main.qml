@@ -27,7 +27,6 @@ ApplicationWindow {
         if (FileManager.currentFileModified) {
             base += "*";
         }
-        console.log(FileManager.currentFileModified);
 
         return base;
     }
