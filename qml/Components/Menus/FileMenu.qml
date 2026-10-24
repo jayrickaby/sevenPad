@@ -9,6 +9,7 @@ Menu {
     id: control
 
     property alias open: actionOpen
+    property alias saveAs: actionSaveAs
 
     title: qsTr("&File")
 

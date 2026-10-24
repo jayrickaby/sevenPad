@@ -35,6 +35,7 @@ ApplicationWindow {
         id: menuBar
 
         file.open.dialog: openDialog
+        file.saveAs.dialog: saveAsDialog
     }
 
     NotepadDocument {
