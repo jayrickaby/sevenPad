@@ -69,7 +69,9 @@ void FileManager::setCurrentFilePath(const QString& path) {
 
 void FileManager::saveToFile(const QString& path, const QByteArray& content) {};
 
-void FileManager::newFile() {};
+void FileManager::newFile() {
+    resetCurrentFilePath();
+};
 
 void FileManager::openFile(const QString& path) {};
 
