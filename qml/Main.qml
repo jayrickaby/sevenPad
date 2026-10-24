@@ -46,6 +46,10 @@ ApplicationWindow {
     FileDialog {
         id: openDialog
 
+        title: qsTr("Open")
+
+        nameFilters: ["Text Documents (*.txt)", "All Files (*.*)"]
+
         onAccepted: {
             FileManager.currentFilePath = openDialog.selectedFile;
         }
@@ -67,6 +71,7 @@ ApplicationWindow {
     }
 
     function openFontSelector() {
+        // TODO: Reset upon opening
         fontWindow.show();
     }
 }
