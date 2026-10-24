@@ -91,5 +91,5 @@ void FileManager::saveAsFile(const QString& path, const QByteArray& content) {
     QString purePath = QUrl(path).toLocalFile();
     saveToFile(purePath, content);
 
-//    setCurrentFilePath(purePath);
+    setCurrentFilePath(path);
 };

@@ -67,7 +67,6 @@ ApplicationWindow {
         nameFilters: ["Text Documents (*.txt)", "All Files (*.*)"]
 
         onAccepted: {
-            console.log(document.text);
             FileManager.saveAsFile(saveAsDialog.selectedFile, document.text);
         }
     }
