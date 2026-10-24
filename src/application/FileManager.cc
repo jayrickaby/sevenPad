@@ -16,7 +16,7 @@ QString FileManager::getCurrentFilePath() {
     return "Untitled";
 }
 
-QByteArray FileManager::getCurrentFileContents() {
+QByteArray FileManager::getCurrentFileText() {
     if (!m_currentFilePath.get()) {
         return {};
     }
