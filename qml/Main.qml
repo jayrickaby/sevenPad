@@ -24,6 +24,7 @@ ApplicationWindow {
     function mainTitle() {
         let base = FileManager.currentFileName;
 
+        // TODO: I don't believe this is in Windows 7. Make it toggleable.
         if (FileManager.currentFileModified) {
             base += "*";
         }
