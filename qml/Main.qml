@@ -18,7 +18,7 @@ ApplicationWindow {
     x: 50
     y: 50
 
-    title: FileManager.currentFile
+    title: FileManager.currentFilePath
     visible: true
 
     menuBar: NotepadMenuBar {
@@ -36,7 +36,9 @@ ApplicationWindow {
     FileDialog {
         id: openDialog
 
-        onSelectedFileChanged: FileManager.currentFile = selectedFile
+        onAccepted: {
+            FileManager.currentFilePath = openDialog.selectedFile;
+        }
     }
 
     FontWindow {

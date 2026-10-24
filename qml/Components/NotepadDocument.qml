@@ -33,7 +33,7 @@ ScrollView {
 
         Connections {
             target: FileManager
-            function onCurrentFileChanged() {
+            function onCurrentFilePathChanged() {
                 document.text = FileManager.currentFileText;
             }
         }

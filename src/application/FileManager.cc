@@ -8,43 +8,38 @@ FileManager::FileManager(QObject *parent)
 : QObject(parent)
 {}
 
-QString FileManager::getCurrentFile() {
-    if (m_currentFile.get()) {
-        return *m_currentFile;
+QString FileManager::getCurrentFilePath() {
+    if (m_currentFilePath.get()) {
+        return *m_currentFilePath;
     }
 
     return "Untitled";
 }
 
 QByteArray FileManager::getCurrentFileContents() {
-    if (!m_currentFile.get()) {
+    if (!m_currentFilePath.get()) {
         return {};
     }
 
-    qDebug() << "reading contents of:" << *m_currentFile;
-
-    QFile text {*m_currentFile};
+    QFile text {*m_currentFilePath};
 
     if (!text.open({QIODeviceBase::ReadOnly})) {
-        qDebug() << "failed to read contents of:" << *m_currentFile;
         // TODO: Turn into overload of setCurrentFile
-        m_currentFile = nullptr;
-        emit currentFileChanged();
+        m_currentFilePath = nullptr;
+        emit currentFilePathChanged();
         return {};
     }
-
-    qDebug() << "successfully read contents of:" << *m_currentFile;
 
     return text.readAll();
 }
 
-void FileManager::setCurrentFile(const QString& path) {
+void FileManager::setCurrentFilePath(const QString& path) {
     QString purePath = QUrl(path).toLocalFile();
 
-    if (!m_currentFile.get() || *m_currentFile != purePath) {
-        m_currentFile = std::make_unique<QString>(purePath);
+    if (!m_currentFilePath.get() || *m_currentFilePath != purePath) {
+        m_currentFilePath = std::make_unique<QString>(purePath);
 
-        emit currentFileChanged();
+        emit currentFilePathChanged();
     }
 };
 
