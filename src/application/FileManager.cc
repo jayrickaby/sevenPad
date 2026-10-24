@@ -30,7 +30,7 @@ QByteArray FileManager::getCurrentFileText() {
 
     QFile text {*m_currentFilePath};
 
-    if (!text.open({QIODeviceBase::ReadOnly})) {
+    if (!text.open(QIODeviceBase::ReadOnly)) {
         resetCurrentFilePath();
         return {};
     }
@@ -67,7 +67,17 @@ void FileManager::setCurrentFilePath(const QString& path) {
     }
 };
 
-void FileManager::saveToFile(const QString& path, const QByteArray& content) {};
+void FileManager::saveToFile(const QString& path, const QByteArray& content) {
+    QFile file {path};
+
+    // Early return as we cannot save it
+    if (!file.open(QIODeviceBase::WriteOnly)) {
+        return;
+    }
+
+    // TODO: Handle the return value of write()
+    file.write(content);
+};
 
 void FileManager::newFile() {
     resetCurrentFilePath();
@@ -77,4 +87,9 @@ void FileManager::openFile(const QString& path) {};
 
 void FileManager::saveFile(const QByteArray& content) {};
 
-void FileManager::saveAsFile(const QString& path, const QByteArray& content) {};
+void FileManager::saveAsFile(const QString& path, const QByteArray& content) {
+    QString purePath = QUrl(path).toLocalFile();
+    saveToFile(purePath, content);
+
+//    setCurrentFilePath(purePath);
+};

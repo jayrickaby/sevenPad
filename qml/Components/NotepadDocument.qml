@@ -6,6 +6,8 @@ import jayrickaby.sevenPad
 ScrollView {
     id: control
 
+    property alias text: document.text
+
     TextArea {
         id: document
 
