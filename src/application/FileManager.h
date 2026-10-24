@@ -10,12 +10,14 @@
 
 class FileManager : public QObject {
     Q_OBJECT
-    Q_PROPERTY(QString currentFilePath READ getCurrentFilePath WRITE setCurrentFilePath NOTIFY currentFilePathChanged)
+    Q_PROPERTY(bool currentFileModified MEMBER m_currentFileModified WRITE setCurrentFileModified NOTIFY currentFileModified)
     Q_PROPERTY(QByteArray currentFileText READ getCurrentFileText NOTIFY currentFilePathChanged)
+    Q_PROPERTY(QString currentFilePath READ getCurrentFilePath WRITE setCurrentFilePath NOTIFY currentFilePathChanged)
     QML_SINGLETON
     QML_ELEMENT
 
 signals:
+    void currentFileModified();
     void currentFilePathChanged();
 
 public:
@@ -25,6 +27,7 @@ public:
     QString getCurrentFilePath();
 
     void resetCurrentFilePath();
+    void setCurrentFileModified(bool state);
     void setCurrentFilePath(const QString& path);
     void saveToFile(const QString& path, const QByteArray& content);
 
@@ -36,6 +39,7 @@ public slots:
 
 private:
     std::unique_ptr<QString> m_currentFilePath {nullptr};
+    bool m_currentFileModified {false};
 };
 
 #endif // SEVENPAD_FILEMANAGER_H_

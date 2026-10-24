@@ -35,15 +35,26 @@ void FileManager::resetCurrentFilePath() {
     if (m_currentFilePath.get()) {
         m_currentFilePath = nullptr;
 
+        setCurrentFileModified(false);
+
         emit currentFilePathChanged();
     }
 }
 
+void FileManager::setCurrentFileModified(bool state) {
+    if (m_currentFileModified != state) {
+        m_currentFileModified = state;
+
+        emit currentFileModified();
+    }
+}
 void FileManager::setCurrentFilePath(const QString& path) {
     QString purePath = QUrl(path).toLocalFile();
 
     if (!m_currentFilePath.get() || *m_currentFilePath != purePath) {
         m_currentFilePath = std::make_unique<QString>(purePath);
+
+        setCurrentFileModified(false);
 
         emit currentFilePathChanged();
     }
