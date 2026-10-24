@@ -7,11 +7,13 @@
 
 #include <qqml.h>
 #include <QFile>
+#include <QFileInfo>
 
 class FileManager : public QObject {
     Q_OBJECT
     Q_PROPERTY(bool currentFileModified MEMBER m_currentFileModified WRITE setCurrentFileModified NOTIFY currentFileModified)
     Q_PROPERTY(QByteArray currentFileText READ getCurrentFileText NOTIFY currentFilePathChanged)
+    Q_PROPERTY(QString currentFileName READ getCurrentFileName NOTIFY currentFilePathChanged)
     Q_PROPERTY(QString currentFilePath READ getCurrentFilePath WRITE setCurrentFilePath NOTIFY currentFilePathChanged)
     QML_SINGLETON
     QML_ELEMENT
@@ -24,6 +26,7 @@ public:
     explicit FileManager(QObject *parent = nullptr);
 
     QByteArray getCurrentFileText();
+    QString getCurrentFileName();
     QString getCurrentFilePath();
 
     void resetCurrentFilePath();

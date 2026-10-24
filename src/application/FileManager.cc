@@ -8,6 +8,13 @@ FileManager::FileManager(QObject *parent)
 : QObject(parent)
 {}
 
+QString FileManager::getCurrentFileName() {
+    if (m_currentFilePath.get()) {
+        return QFileInfo(*m_currentFilePath).fileName();
+    }
+
+    return "Untitled";
+}
 QString FileManager::getCurrentFilePath() {
     if (m_currentFilePath.get()) {
         return *m_currentFilePath;

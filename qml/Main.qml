@@ -22,7 +22,7 @@ ApplicationWindow {
     visible: true
 
     function mainTitle() {
-        let base = FileManager.currentFilePath;
+        let base = FileManager.currentFileName;
 
         if (FileManager.currentFileModified) {
             base += "*";
