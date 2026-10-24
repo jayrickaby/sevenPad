@@ -24,6 +24,7 @@ public:
     QByteArray getCurrentFileText();
     QString getCurrentFilePath();
 
+    void resetCurrentFilePath();
     void setCurrentFilePath(const QString& path);
     void saveToFile(const QString& path, const QByteArray& content);
 

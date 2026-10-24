@@ -24,13 +24,19 @@ QByteArray FileManager::getCurrentFileText() {
     QFile text {*m_currentFilePath};
 
     if (!text.open({QIODeviceBase::ReadOnly})) {
-        // TODO: Turn into overload of setCurrentFile
-        m_currentFilePath = nullptr;
-        emit currentFilePathChanged();
+        resetCurrentFilePath();
         return {};
     }
 
     return text.readAll();
+}
+
+void FileManager::resetCurrentFilePath() {
+    if (m_currentFilePath.get()) {
+        m_currentFilePath = nullptr;
+
+        emit currentFilePathChanged();
+    }
 }
 
 void FileManager::setCurrentFilePath(const QString& path) {
