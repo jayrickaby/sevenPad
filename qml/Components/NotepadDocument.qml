@@ -30,6 +30,9 @@ ScrollView {
         onTextChanged: {
             Document.text = document.text;
         }
+        onTextEdited: {
+            FileManager.currentFileModified = true;
+        }
 
         Connections {
             target: FileManager
